@@ -1,0 +1,883 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung - Week 03}
+
+
+\begin{enumerate}
+\item {\em Consider the motion: $x_1=at+X_1, x_2=X_2, x_3= X_3$ , where the material coordinates $X_I$ designate the position of a particle at $t=0$.}
+\bi
+\item {\em Determine the velocity and acceleration of a particle in both a material and a spatial description.}
+
+In material description the velocity vector is given by:
+\be
+\bs{V}(\bs{X},t)=\frac{\pa \bs{x}}{\pa  t} \to [\bs{V}(\bs{X},t)]=\left[\begin{array}{l}  a \\ 0 \\ 0 \end{array} \right].
+\ee
+The acceleration vector is given by:
+\be
+\bs{A}(\bs{X},t)=\frac{\pa \bs{V}}{\pa  t} \to [\bs{A}(\bs{X},t)]=\left[\begin{array}{l}  0 \\ 0 \\ 0 \end{array} \right].
+\ee
+
+To obtain the velocity and acceleration fields in  spatial description one must invert the deformation map $\bs{x}=\bs{\phi}(\bs{X},t)$, i.e. find
+$\bs{X}=\bs{\phi}^{-1}(\bs{x},t)$ and substitute in the velocity and acceleration expressions in the material description. In this problem one can easily find
+that:
+\be
+X_1=x_1-at, \quad X_2=x_2, \quad x_3=X_3.
+\ee
+Hence the velocity vector in spatial description is given by:
+\be
+\bs{v}(\bs{x},t)=\bs{V}(\bs{\phi}^{-1}(\bs{x},t),t) \to \to [\bs{v}(\bs{x},t)]=\left[\begin{array}{l}  a \\ 0 \\ 0 \end{array} \right].
+\ee
+Similarly for the acceleration vector:
+\be
+\bs{a}(\bs{x},t)=\bs{A}(\bs{\phi}^{-1}(\bs{x},t),t) \to [\bs{a}(\bs{x},t)]=\left[\begin{array}{l}  0 \\ 0 \\ 0 \end{array} \right].
+\ee
+
+\item  {\em If the temperature field in spatial description is given by $\theta=Ax_1$, what is its material description? Find the material derivative of
+$\theta$ using both descriptions of the temperature.}
+
+Using the the deformation map from above we obtain that the temperature field in material description is:
+
+\be
+\theta(\bs{X})=\theta(at+X_1)=A(at+X_1).
+\ee
+
+
+\textbf{Note that the expression above involves a slight abuse of notation that is nevertheless frequently encountered in continuum-mechanics literature. We
+used $\theta$ to denote the temperature functions in both material and spatial descriptions. In actuality, they are different functions with different arguments}.
+
+
+The material derivative in material description is:
+\be
+\frac{D \theta}{D t}=\frac{\pa \theta(\bs{X},t)}{\pa t}=Aa
+\ee
+The material derivative when $\theta$ is given in spatial description is:
+\be
+\begin{array}{ll}
+\frac{D \theta}{D t}&=\frac{\pa \theta(\bs{x},t)}{\pa t}+\frac{\pa \theta(\bs{x},t)}{\pa  x_i} \cdot \frac{\pa x_i}{\pa t} \\
+& = \frac{\pa \theta(\bs{x},t)}{\pa t}+\frac{\pa \theta(\bs{x},t)}{\pa \bs{x}} \cdot v_i(\bs{x},t)
+\end{array}
+\ee
+where $\bs{v}(\bs{x},t)$ is the velocity (in spatial description) given above.
+Hence:
+\be
+\frac{D \theta}{D t}=0+\left[\begin{array}{lll}  A & 0 & 0 \end{array} \right]^T \left[\begin{array}{l}  a \\ 0 \\ 0 \end{array} \right]=Aa
+\ee
+which coincides with the result found previously using the material description.
+
+\item {\em  Repeat the previous calculations if the temperature field is $\theta=Bx_2$.}
+
+Similarly:
+
+\be
+\theta(\bs{X})=\theta(X_2)=BX_2
+\ee
+
+
+
+
+The material derivative in spatial description is:
+\be
+\frac{D \theta}{D t}=\frac{\pa \theta(\bs{X},t)}{\pa t}=0
+\ee
+The material derivative when $\theta$ is given in spatial description is:
+\be
+\begin{array}{ll}
+\frac{D \theta}{D t}&=\frac{\pa \theta(\bs{x},t)}{\pa t}+\frac{\pa \theta(\bs{x},t)}{\pa x_i} \cdot \frac{\pa x_i}{\pa t} \\
+& = \frac{\pa \theta(\bs{x},t)}{\pa t}+\frac{\pa \theta(\bs{x},t)}{\pa x_i} \cdot v_i(\bs{x},t) \\
+&= 0 +\left[\begin{array}{lll}  0 , B ,0 \end{array} \right] \left[\begin{array}{l}  a \\ 0 \\ 0 \end{array} \right]=0
+\end{array}
+\ee
+
+
+
+\ei
+
+
+
+\newpage
+
+\item  {\em Consider the motion: $x_1= bX_2 t^2+X_1, x_2=kX_2 t+X_2,  x_3 = X_3$.}
+\bi
+\item {\em  At $t=0$, the corners of a unit square are at $A(0,0,0)$, $B(0,1,0)$, $C(1,1,0)$, $D(1,0,0)$.  Sketch the deformed shape of the square at $t = 2$.}
+
+At $t=2$ the corners of the square will be located at:
+\bi
+\item $A \to A'$ with coordinates:
+\be
+x_1= b ~0 ~2^2+0=0, \quad  x_2=k~0 ~2+0=0, \quad   x_3 = 0
+\ee
+
+
+\item $B \to B'$ with coordinates:
+\be
+x_1=b~1~ 2^2+0=4b,\quad  x_2=k~1~2 +1=2k+1, \quad  x_3 = 0
+\ee
+
+
+\item $C \to C'$ with coordinates:
+\be
+x_1=b~1~ 2^2+1=4b+1,\quad  x_2=k~1~2 +1=2k+1, \quad  x_3 = 0
+\ee
+
+
+\item $D \to D'$ with coordinates:
+\be
+x_1=b~0~ 2^2+1=1,\quad  x_2=k~0~2 +0=0, \quad  x_3 = 0
+\ee
+\ei
+
+\item {\em Obtain the spatial description of the velocity field.}
+
+In {\em material description} the velocity field is:
+\be
+\bs{V}(\bs{X},t)=\frac{\pa \bs{x}}{\pa  t} \to [\bs{V}(\bs{X},t)]=\left[\begin{array}{l}  2btX_2 \\ kX_2 \\ 0 \end{array} \right]
+\ee
+Furthermore, by inverting the deformation map, we obtain:
+\be
+X_1=x_1-bt^2 x_2/(1+kt), \quad X_2=x_2/(1+kt), \quad X_3=x_3.
+\ee
+Hence the velocity vector in spatial description is given by:
+\be
+\bs{v}(\bs{x},t)=\bs{V}(\bs{\phi}^{-1}(\bs{x},t),t) \to \to [\bs{v}(\bs{x},t)]=\left[\begin{array}{l}  2bt \frac{x_2}{1+kt} \\ k\frac{x_2}{1+kt} \\ 0
+\end{array} \right]
+\ee
+
+\textbf{Note that even though time does not appear \underline{explicitly} in the material description  it does so in the spatial. This is because the former
+gives the velocity of a specific particle (initially found at $\bs{X}$) whereas the latter gives the velocity at a specific spatial location $\bs{x}$ which is
+occupied by different particles at different times.}
+
+\item {\em Obtain the spatial description of the acceleration field.}
+
+
+In {\em material description} the acceleration field is:
+\be
+\bs{A}(\bs{X},t)=\frac{\pa \bs{V}}{\pa  t} \to [\bs{A}(\bs{X},t)]=\left[\begin{array}{l}  2bX_2 \\ 0 \\ 0 \end{array} \right]
+\ee
+
+Hence the acceleration vector in spatial description is:
+\be
+\bs{a}(\bs{x},t)=\bs{A}(\bs{\phi}^{-1}(\bs{x},t),t) \to [\bs{a}(\bs{x},t)]=\left[\begin{array}{l}   2b \frac{x_2}{1+kt} \\ 0 \\ 0 \end{array} \right]
+\ee
+
+
+\textbf{ Note that even though time does not appear \underline{explicitly} in the material description description it does so in the spatial. This is because the former gives the acceleration of a specific  particle (initially found at $\bs{X}$) whereas the latter gives the acceleration at a specific spatial location $\bs{x}$ which is occupied by different particles at different times.}
+
+\ei
+
+\newpage
+
+% 
+
+\item  {\em Consider the motion $x_1=k(s+X_1)t+X_1, x_2=X_2, x_3=X_3$.}
+\bi
+\item  {\em Find the velocity and acceleration as a function of time of a particle that is initially at the origin.}
+
+
+A particle that is originally at the origin implies that it has material coordinates $\bs{X}=(0,0,0)$.
+Since we need to find velocity and acceleration of a specific particle, we must consider the {\em material description}.
+
+In material description the velocity vector is given by:
+\be
+\bs{V}(\bs{X},t)=\frac{\pa \bs{x}}{\pa  t} \to [\bs{V}(\bs{X},t)]=\left[\begin{array}{l}  k(s+X_1) \\ 0 \\ 0 \end{array} \right]
+\ee
+Hence:
+\be
+[\bs{V}((0,0,0),t)]=\left[\begin{array}{l}  ks \\ 0 \\ 0 \end{array} \right]
+\ee
+i.e. the particle moves at constant velocity.
+
+The acceleration vector is given by:
+\be
+\bs{A}(\bs{X},t)=\frac{\pa \bs{V}}{\pa  t} \to [\bs{A}(\bs{X},t)]=\left[\begin{array}{l}  0 \\ 0 \\ 0 \end{array} \right]
+\ee
+and:
+\be
+[\bs{A}((0,0,0),t)]=\left[\begin{array}{l}  0 \\ 0 \\ 0 \end{array} \right]
+\ee
+
+
+\item  {\em Find the velocity and acceleration as a function of time of the particles that are passing through the origin.}
+
+Since we need to find velocity and acceleration at a specific location (occupied by different particles), we must consider the {\em spatial description}.
+
+To obtain the velocity and acceleration fields in  spatial description one must invert the deformation map $\bs{x}=\bs{\phi}(\bs{X},t)$ i.e. find $\bs{X}=\bs{\phi}^{-1}(\bs{x},t)$ and substitute in the velocity and acceleration expressions in the material description. In this problem one can easily find that:
+\be
+X_1=\frac{x_1-kst}{1+kt}, \quad X_2=x_2, \quad x_3=X_3
+\ee
+Hence the velocity vector in spatial description is given by:
+\be
+\bs{v}(\bs{x},t)=\bs{V}(\bs{\phi}^{-1}(\bs{x},t),t)  \to [\bs{v}(\bs{x},t)]=\left[\begin{array}{l}  \frac{k(s+x_1)}{1+kt} \\ 0 \\ 0 \end{array} \right]
+\ee
+At the origin, i.e. for $\bs{x}=(0,0,0)$:
+\be
+ [\bs{v}((0,0,0),t)]=\left[\begin{array}{l}  \frac{ks}{1+kt} \\ 0 \\ 0 \end{array} \right]
+\ee
+
+Similarly for the acceleration vector:
+\be
+\bs{a}(\bs{x},t)=\bs{A}(\bs{\phi}^{-1}(\bs{x},t),t) \to [\bs{a}(\bs{x},t)]=\left[\begin{array}{l}  0 \\ 0 \\ 0 \end{array} \right]
+\ee
+and:
+\be
+[\bs{a}((0,0,0),t)]=\left[\begin{array}{l}  0 \\ 0 \\ 0 \end{array} \right]
+\ee
+
+\ei
+
+\newpage
+
+
+\item {\em  Show that the velocity field $v_i =kx_i/(1+kt)$ corresponds to the motion $x_i= X_i(1+kt)$  and find the acceleration of this motion in material description.}
+
+If $x_i= X_i(1+kt) \leftrightarrow X_i=x_i/(1+kt)$, the velocity field in material description is given by:
+\be
+V_i(\bs{X},t)=\frac{\pa x_i}{\pa {t}} =kX_i
+\ee
+and the velocity field in spatial description will be:
+\be
+v_i=k \underbrace{\frac{x_i}{1+kt}}_{X_i}
+\ee
+
+
+\newpage
+
+
+
+
+\item  {\em  Given the following deformation in rectangular Cartesian coordinates: $x_1= 3X_3, x_2=-X_1, x_3=-2X_2$, determine (a) the deformation gradient $\bs{F}$, (b) the right Cauchy-Green tensor $\bs{C}$ and the right stretch tensor $\bs{U}$, (c) the left Cauchy-Green tensor $\bs{b}$, (d) the rotation tensor $\bs{R}$ in the polar decomposition of $\bs{F}$, (e) the Lagrangean finite 
+strain tensor $\bs{E}$ , (f) the Eulerian finite  strain tensor $\bs{e}$ , (g) the ratio of deformed volume to initial volume, and (h) the deformed area (magnitude and its normal) for the area whose normal was in the direction of $\bs{\hat{e}}_2$ and whose magnitude was unity for the undeformed area.
+}
+
+\bi
+\item[a)] The deformation gradient tensor $\bs{F}$ has components:
+\be
+F_{iI}=\frac{\pa x_i }{\pa X_I} \to [\bs{F}]=\left[ \begin{array}{lll} 0 & 0 & 3 \\-1 & 0 & 0 \\0 & -2 & 0 \end{array} \right]
+\ee
+
+Note that the deformation gradient \underline{is not in general a symmetric tensor}.
+
+\item[b)] the right Cauchy-Green tensor $\bs{C}$ is given by:
+\be
+\bs{C}=\bs{F}^T\bs{F} \to [\bs{C}]=\left[ \begin{array}{lll} 1 & 0 & 0 \\0 & 4 & 0 \\0 & 0 & 9 \end{array} \right]
+\ee
+Note that by definition the right Cauchy-Green tensor $\bs{C}$ is \underline{always} symmetric.
+
+The right stretch tensor $\bs{U}$ arises from the polar decomposition of $\bs{F}$ i.e.:
+\be
+\bs{F}=\bs{R U} \to \bs{F}^T\bs{F}=\bs{U}^T \bs{R}^T \bs{R U} =\bs{U}^2
+\ee
+since $\bs{R}$ is orthogonal and $\bs{U}$ symmetric. From above we have that:
+\be
+\bs{U}^2=\bs{F}^T\bs{F}=\bs{C} \to [\bs{U}]=\left[ \begin{array}{lll} 1 & 0 & 0 \\0 & 2 & 0 \\0 & 0 & 3 \end{array} \right]
+\ee
+(Note: Do you remember how to find the square root of $\bs{C}$ if it is not diagonal?)
+
+\item[c)] the left Cauchy-Green tensor $\bs{b}$ is given by:
+\be
+\bs{b}=\bs{F}\bs{F}^T \to [\bs{b}]=\left[ \begin{array}{lll} 9 & 0 & 0 \\0 & 1 & 0 \\0 & 0 & 4 \end{array} \right]
+\ee
+Note that by definition the left Cauchy-Green tensor $\bs{b}$ is \underline{always} symmetric.
+
+\item[d)] From $\bs{F}=\bs{R U}$ we obtain that:
+\be
+\bs{R}=\bs{F}\bs{U}^{-1} \to [\bs{R}]=\left[ \begin{array}{lll} 0 & 0 & 1 \\-1 & 0 & 0 \\0 & -1 & 0 \end{array} \right]
+\ee
+(Note: can you verify that $\bs{R}$ is orthogonal?)
+
+\item[e)] the Lagrangean finite  strain tensor $\bs{E}$  is given by:
+\be
+\bs{E}=\frac{1}{2}(\bs{C} -\bs{I}) \to [\bs{E}]=\left[ \begin{array}{lll} 0 & 0 & 0 \\0 & 3/2 & 0 \\0 & 0 & 4 \end{array} \right]
+\ee
+
+\item[f)] the Eulerian finite  strain tensor $\bs{e}$ is given by:
+\be
+\bs{e}=\frac{1}{2}(\bs{I} -\bs{b}^{-1}) \to [\bs{e}]=\left[ \begin{array}{lll} 4/9 & 0 & 0 \\0 & 0 & 0 \\0 & 0 & 3/8 \end{array} \right]
+\ee
+
+
+\item[g)] the ratio of deformed volume $dv$ to initial volume $dV$ is given by (Lai et al. section 3.28):
+\be
+\frac{dv}{dV}=det(\bs{F})=6
+\ee
+
+
+\item[h)] The change in area is given by (Lai et al., section 3.27):
+ 
+\be
+d\bs{a}=\det(\bs{F})\bs{F}^{-T} d\bs{A}
+\ee
+where $d\bs{A}=dA \bs{N}$ is a \underline{vector} perpendicular to the undeformed area, $dA$ is the undeformed area (scalar) and $\bs{N}$ is the unit normal to the undeformed area. Similarly, $d\bs{a}=da \bs{n}$ is a \underline{vector} perpendicular to the deformed area, $da$ is the deformed area (scalar) and $\bs{n}$ is the unit normal to the deformed area.  In our case:
+\be
+d\bs{A}=1~\bs{\hat{e}}_2 \to [d\bs{A}]=\left[\begin{array}{l} 0 \\ 1 \\ 0 \end{array}\right]
+\ee
+and since $[\bs{F}^{-T}]=[(\bs{F}^{-1})^T]=\frac{1}{6}\left[ \begin{array}{lll} 0 & -6 & 0 \\0 & 0 & -3 \\2 & 0 & 0 \end{array} \right]^T=\frac{1}{6}\left[ \begin{array}{lll} 0 & 0 & 2 \\-6 & 0 & 0\\ 0 & -3 & 0 \end{array} \right]$:
+\be
+[d\bs{a}]=6~\frac{1}{6}\left[ \begin{array}{lll} 0 & 0 & 2 \\-6 & 0 & 0\\ 0 & -3 & 0 \end{array} \right] \left[\begin{array}{l} 0 \\ 1 \\ 0 \end{array}\right]=\left[\begin{array}{l} 0 \\ 0 \\ -3 \end{array}\right]
+\ee
+i.e.  the area will increase by a factor of $3$ and the unit normal in the deformed state will be in the direction of $-\bs{\hat{e}}_3$
+
+
+
+\ei
+
+
+
+\newpage
+\item {\em  Given the following right Cauchy-Green deformation tensor at a point:
+\be
+[\bs{C}]=\left[ \begin{array}{ccc} 9 &0 &0 \\ 0 & 4 & 0 \\ 0 & 0 & 0.36 \end{array} \right]
+\ee
+}
+\bi
+\item {\em  Find the stretch for the material elements that were in the direction of $\bs{\hat{e}}_1$, $\bs{\hat{e}}_2$ and $\bs{\hat{e}}_3$
+}
+
+We have established that for any infinitesimal vector $d\bs{X}$ it deforms to:
+\be
+d\bs{x}=\bs{F}d\bs{X} \textrm{ or } dx_i=F_{iI}dX_I
+\ee
+and the relationship between undeformed $dX=|d\bs{X}|$ and deformed lengths $dx=|d\bs{x}|$ is:
+\be
+(dx)^2=d\bs{x}_i d\bs{x}_i=F_{iI}dX_I F_{iJ}dX_J=dX_I (F_{iI} F_{iJ}) dX_J=dX_I C_{IJ} dX_J
+\ee
+where $\bs{C}$ is the right Cauchy-Green deformation tensor. Hence for elements in the direction $\bs{\hat{e}}_1$:
+\be
+ (dx)^2=C_{11}(dX)^2 \to \textrm{ stretch ratio is:} |\frac{dx}{dX}|=\sqrt{C_{11}}=3
+\ee
+Similarly for $\bs{\hat{e}}_2$:
+\be
+ (dx)^2=C_{22}(dX)^2 \to \textrm{ stretch ratio is:} |\frac{dx}{dX}|=\sqrt{C_{22}}=2
+\ee
+and for $\bs{\hat{e}}_3$:
+\be
+ (dx)^2=C_{33}(dX)^2 \to \textrm{ stretch ratio is:} |\frac{dx}{dX}|=\sqrt{C_{33}}=0.6
+\ee
+
+\item  {\em Find the stretch for the material element that was in the direction of $\bs{\hat{e}}_1+\bs{\hat{e}}_2$.}
+
+Consider an element $d\bs{X}$ with undeformed length $d{X}$ in the direction of $\bs{\hat{e}}_1+\bs{\hat{e}}_2$ i.e. $d\bs{X}=d{X}\frac{1}{\sqrt{2}} (\bs{\hat{e}}_1+\bs{\hat{e}}_2)$ or equivalently:
+\be
+[d\bs{X}]=\frac{dX}{\sqrt{2}} \left[ \begin{array}{l} 1 \\1 \\ 0 \end{array}\right]
+\ee
+Then from the relation above the deformed length $dx$ is given by:
+\be
+(dx)^2=d\bs{X}\cdot \bs{C} d\bs{X}=\frac{dX}{\sqrt{2}} \left[ \begin{array}{lll} 1 &1 & 0 \end{array}\right] \left[ \begin{array}{ccc} 9 &0 &0 \\ 0 & 4 & 0 \\ 0 & 0 & 0.36 \end{array} \right] \frac{dX}{\sqrt{2}} \left[ \begin{array}{l} 1 \\1 \\ 0 \end{array}\right]=(dX)^2\frac{13}{2}
+\ee
+and the stretch ratio is:
+\be
+|\frac{dx}{dX}|=\sqrt{\frac{13}{2}}
+\ee
+
+
+
+\item  {\em Find $\cos \theta$, where $\theta$ is the angle between the deformed elements $d\bs{x}^{(1)}$ and $d\bs{x}^{(2)}$ corresponding to  $d\bs{X}^{(1)}=dS_1 \bs{\hat{e}}_1$ and
+ $d\bs{X}^{(2)}=dS_2 \bs{\hat{e}}_2$.}
+
+From above we have that:
+\be
+d\bs{x}^{(1)}=\bs{F} d\bs{X}^{(1)} \textrm{ and } d\bs{x}^{(2)}=\bs{F} d\bs{X}^{(2)}
+\ee
+and:
+\begin{align}
+\label{eq:sol1}
+d\bs{x}^{(1)} \cdot d\bs{x}^{(2)} &=ds_1ds_2 \cos \theta= (\bs{F} d\bs{X}^{(1)})\cdot (\bs{F} d\bs{X}^{(2)}) \\ \nonumber
+&=d\bs{X}^{(1)} \cdot (\bs{F}^T\bs{F})d\bs{X}^{(2)}=d\bs{X}^{(1)}\cdot \bs{C} d\bs{X}^{(2)}
+\end{align}
+where $ds_1,ds_2$ are the deformed lengths which in the problem  at hand  are given as above by:
+\be
+(ds_1)^2 =C_{11} (dS_1)^2\to ds_1=3 dS_1
+\ee
+and:
+ \be
+(ds_2)^2= C_{22} (dS_2)^2\to ds_2=2 dS_2
+\ee
+Hence for \refeq{eq:sol1} we have:
+\be
+ds_1ds_2 \cos \theta = dS_1 dS_2 C_{12} \to \cos \theta =C_{12} \frac{dS_1}{ds_1} \frac{dS_2}{ds_2}=0
+\ee
+i.e. the angle $\theta$ will remain equal to $90^o$ even after deformation.
+\ei
+
+
+\newpage
+
+
+
+\item (\textbf{Exam 2013}) 
+Consider the unit square OABC where side OA is at a $45^o$ angle with direction $\bs{\hat{e}}_1$ as in Figure \ref{fig:square}. It undergoes the following deformation:
+\be
+x_1=kX_2+X_1, \quad x_2=kX_1+X_2, \quad x_3=X_3
+\ee
+\begin{figure}[ht]
+ \centering
+ \psfrag{O}{O}
+  \psfrag{A}{A}
+ \psfrag{C}{C}
+ \psfrag{B}{B}
+ \psfrag{e1}{$\bs{\hat{e}}_1, X_1, x_1$}
+ \psfrag{e2}{$\bs{\hat{e}}_2, X_2,x_2$}
+ \includegraphics[height=3cm]{FIGURES/strecch_square.eps}
+ \caption{Problem configuration}
+ \label{fig:square}
+\end{figure}
+
+\bi
+\item Find the  length of the sides OA and OC in the deformed state
+\item 
+Find the angle between sides OA and OC in the deformed state 
+\ei
+
+\underline{Solution:}
+\begin{align}
+&\vec O = (0, \quad 0),~ &&\vec O'= (0, \quad 0), \\ \nonumber
+&\vec A = \left(1/\sqrt{2}, \quad 1/\sqrt{2}\right),~ &&\vec A'= \left(\frac{k+1}{\sqrt{2}}, \quad \frac{k+1}{\sqrt{2}}\right), \\ \nonumber
+&\vec C = \left(-\frac{1}{\sqrt{2}}, \quad \frac{1}{\sqrt{2}}\right), &&\vec C' = \left(\frac{k - 1}{\sqrt{2}}, \quad \frac{1 - k}{\sqrt{2}}\right).
+\end{align}
+Lengths:
+\be
+\left|\vec O' -\vec A'\right| = \left|\vec A'\right| = \left| k + 1 \right|, \qquad \left|\vec O' -\vec C'\right| = \left|\vec C'\right| = \left|k - 1\right|.
+\ee
+Angle:
+\be
+\left|\vec A'\right|\cdot\left|\vec C'\right| \cos \theta =\vec A' \cdot \vec C' = \frac{1}{2}\left(k^2 - 1 + 1 - k^2\right) = 0,
+\ee
+i.e. the sides $O'A', O'C'$ stay perpendicular in the deformed state.
+
+
+\item (\textbf{Exam 2013}) 
+The cylinder shown in  Figure \ref{fig:cylinder} undergoes the following deformation:
+\be
+\begin{array}{l}
+x_1 = \mu (X_1 \cos (\beta X_3) + X_2 \sin (\beta X_3) ) \\
+x_2 = \mu (- X_1 \sin (\beta X_3) + X_2 \cos (\beta X_3)) \\
+x_3 = \nu X_3
+\end{array}
+\ee
+where $\mu, \beta, \nu$ are constants. 
+\begin{figure}[ht]
+ \centering
+ \psfrag{x1}{$X_1$}
+  \psfrag{x2}{$X_2$}
+ \psfrag{x3}{$X_3$}
+  \psfrag{L}{$L$}
+   \psfrag{f}{$r$}
+ \includegraphics[width=4cm,height=4cm]{FIGURES/cylinder2.eps}
+ \caption{Problem configuration}
+ \label{fig:cylinder}
+\end{figure}
+\bi
+ \item  Determine the relationship between these constants if the deformation corresponds to an incompressible medium.\\
+ 
+ 
+ An infinitesimal volume $dV$ becomes $dv$ after deformation where:
+ \be
+ dv= det(\bs{F}) dV
+ \ee
+ Hence $det(F)=1$ everywhere if the material is inmcomressible (i.e. its volume does not change).
+ We have that:
+ \be
+ [\bs{F}]=\left[ \begin{array}{lll} \mu \cos (\beta X_3) & \mu \sin (\beta X_3) & \mu \beta (-X_1 \sin (\beta X_3)+X_2 \cos (\beta X_3)) \\
+ -\mu \sin (\beta X_3) & \mu \cos (\beta X_3) &  \mu \beta (-X_1 \cos (\beta X_3)-X_2 \cos (\beta X_3))  \\
+ 0 & 0 & \nu \end{array} \right]
+\ee
+Hence $det(F)=\nu \mu^2$. As a result as long as $\nu \mu^2=1$ the motion is incompressible (for any $\beta$).
+
+
+\item Determine the deformed length   $l$ of an element on the lateral surface which
+has unit length and is parallel to the cylinder axis $X_3$ in the
+reference configuration. Your final expression could be in terms of 
+the length $L$, the radius $r$ and the constants $\mu, \beta, \nu$.
+
+Consider such a line on the lateral surface and a point P along this line with coordinates $(X_1,X_2,X_3)$. Since $P$ is on the lateral surface:
+\be
+X_1^2+X_2^2=r^2
+\label{eq:cyl}
+\ee
+Consider also a fiber $d\bs{X}$ originating from $P$ with infinitesimal length $dS$ and in the direction of $X_3$ i.e.:
+\be
+[d\bs{X}]=dS\left[ \begin{array}{l} 0 \\ 0 \\ 1 \end{array} \right]
+\ee
+The fiber becomes $d\bs{x}$ is the deformed state and:
+\be
+[d\bs{x}]=[\bs{F}][d\bs{X}]=dS\left[ \begin{array}{c} \mu \beta (-X_1 \sin (\beta X_3)+X_2 \cos (\beta X_3)) \\ \mu \beta (-X_1 \cos (\beta X_3)-X_2 \cos (\beta X_3))  \\ \nu \end{array} \right]
+\ee
+If $ds$ is the deformed infinitesimal length of $d\bs{x}$ then:
+\be
+\begin{array}{ll} 
+ds^2 &=dS^2 ( \mu^2 \beta^2 ((-X_1 \sin (\beta X_3)+X_2 \cos (\beta X_3))^2 \\ &~~+(-X_1 \cos (\beta X_3)-X_2 \cos (\beta X_3))^2)+\nu^2) \\
+&= dS^2 (  \mu^2 \beta^2 ( X_1^2+X_2^2)+\nu^2) \\
+& =dS^2(  \mu^2 \beta^2 r^2+\nu^2)
+\end{array}
+\ee
+due to \refeq{eq:cyl}. Hence the length will increase by a factor $\sqrt{\mu^2 \beta^2 r^2+\nu^2}$. This is independent of the point $P$ along the line we consider and as a result
+ the new length $l$ of the unit undeformed element will be:
+ \be
+ l=\sqrt{\mu^2 \beta^2 r^2+\nu^2}
+ \ee
+
+\ei
+
+
+\newpage
+
+\item  {\em Consider the motion given by:
+\be
+\bs{x}=\bs{X}+kX_1\bs{\hat{e}}_1
+\ee
+Let $d\bs{X}^{(1)}=\frac{dS_1}{\sqrt{2}}( \bs{\hat{e}}_1+\bs{\hat{e}}_2)$ and
+ $d\bs{X}^{(2)}=\frac{dS_2}{\sqrt{2}}( -\bs{\hat{e}}_1+\bs{\hat{e}}_2)$  be differential material elements in the undeformed configuration.
+}
+\bi
+\item {\em Find the deformed elements $d\bs{x}^{(1)}$ and $d\bs{x}^{(2)}$ with lengths $ds_1$ and $ds_2$ respectively.
+}
+The deformation gradient for the motion above is given by:
+\be
+[\bs{F}]=\left[\begin{array}{lll}  1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array}
+\right]
+\ee
+
+As discussed in the previous problem as well:
+\be
+d\bs{x}^{(1)}=\bs{F}d\bs{X}^{(1)} \to [d\bs{x}^{(1)}]=\left[\begin{array}{lll}  1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array}
+\right] \frac{dS_1}{\sqrt{2}} \left[\begin{array}{l} 1 \\1 \\0 \end{array} \right] =\frac{dS_1}{\sqrt{2}}  \left[\begin{array}{l} 1+k \\1 \\0 \end{array} \right]
+\ee
+and:
+\be
+ds_1=|d\bs{x}^{(1)}|=\frac{dS_1}{\sqrt{2}} \sqrt{(1+k)^2+1}
+\ee
+
+
+Similarly:
+\be
+d\bs{x}^{(2)}=\bs{F}d\bs{X}^{(2)} \to [d\bs{x}^{(2)}]=\left[\begin{array}{lll}  1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array}
+\right] \frac{dS_1}{\sqrt{2}} \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right] =\frac{dS_1}{\sqrt{2}}  \left[\begin{array}{l} -(1+k) \\1 \\0 \end{array} \right]
+\ee
+and:
+\be
+ds_2=|d\bs{x}^{(2)}|=\frac{dS_2}{\sqrt{2}} \sqrt{(1+k)^2+1}
+\ee
+
+
+\item  {\em  Evaluate the stretches of these elements $ds_1/dS_1$ and $ds_2/dS_2$ and the change in the angle between them.
+}
+
+From the discussion in the previous problem we have:
+\be
+|\frac{ds_1}{dS_1}|=\sqrt{\frac{(1+k)^2+1}{2}}
+\ee
+\be
+|\frac{ds_2}{dS_2}|=\sqrt{\frac{(1+k)^2+1}{2}}
+\ee
+Furthermore the right Cauchy-Green tensor $\bs{C}$ is:
+\be
+[\bs{C}]=\left[\begin{array}{lll}  (1+k)^2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array}
+\right]
+\ee
+and:
+\be
+\begin{array}{ll}
+ds_1ds_2\cos \theta & =d\bs{X}^{(1)}\cdot \bs{C}d\bs{X}^{(2)} \\
+& =\frac{dS_1}{\sqrt{2}}  \left[\begin{array}{lll} 1 &1 &0 \end{array} \right]  \left[\begin{array}{lll}  (1+k)^2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array}
+\right] \frac{dS_2}{\sqrt{2}}  \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right]\\
+&=\frac{dS_1dS_2}{2}(-(1+k)^2+1)
+\end{array}
+\ee
+\item Evaluate   part (b) for $k=1$ and $k=0.01$.
+For $k=1$:
+\be
+|\frac{ds_1}{dS_1}|=\sqrt{\frac{(1+k)^2+1}{2}}=\sqrt{\frac{5}{2}}=1.581
+\ee
+\be
+|\frac{ds_2}{dS_2}|=\sqrt{\frac{(1+k)^2+1}{2}}=\sqrt{\frac{5}{2}}=1.581
+\ee
+and:
+\be
+ds_1ds_2\cos \theta=\frac{dS_1dS_2}{2}(-(1+k)^2+1)=-\frac{3 dS_1dS_2}{2} \to cos\theta =-0.6
+\ee
+For $k=0.01$:
+\be
+|\frac{ds_1}{dS_1}|=\sqrt{\frac{(1+k)^2+1}{2}}=1.005
+\ee
+\be
+|\frac{ds_2}{dS_2}|=\sqrt{\frac{(1+k)^2+1}{2}}=1.005
+\ee
+and:
+\be
+ds_1ds_2\cos \theta=\frac{dS_1dS_2}{2}(-(1+k)^2+1)=-\frac{3 dS_1dS_2}{2} \to cos\theta =-0.00995
+\ee
+
+
+\item  {\em Compare the results of the previous part  to that predicted by the infinitesimal  strain tensor $\bs{\epsilon}$.
+}
+The Lagrangean strain tensor $\bs{E}$ relates to  the right Cauchy-Green tensor $\bs{C}$ as:
+\be
+\bs{E}=\frac{1}{2}(\bs{C}-\bs{I}) \leftrightarrow \bs{C}=2\bs{E}+\bs{I}
+\ee
+We can therefore use $[\bs{E}]=\left[\begin{array}{lll}  \frac{(1+k)^2-1}{2} & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0                
+               \end{array}
+\right]$ to derive the results above, e.g.:
+\be
+(ds_1)^2=d\bs{X}^{(1)}\cdot (2\bs{E}+\bs{I}) d\bs{X}^{(1)}, \textrm{ or } (ds_1)^2=d\bs{X}^{(2)}\cdot (2\bs{E}+\bs{I}) d\bs{X}^{(2)}
+\ee
+and:
+\be
+ds_1ds_2\cos \theta=d\bs{X}^{(1)}\cdot (2\bs{E}+\bs{I}) d\bs{X}^{(2)}
+\ee
+If in the equations above we use instead of $\bs{E}$, the infinitesimal strain tensor $\bs{\epsilon}$ given by:
+\be
+\bs{\epsilon}=\frac{1}{2}(\bs{F}+\bs{F}^T)-\bs{I} \to [\bs{\epsilon}]=\left[\begin{array}{lll}  k & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0                
+               \end{array}
+\right]
+\ee
+then we obtain:
+\be
+\begin{array}{ll}
+(ds_1)^2& =d\bs{X}^{(1)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(1)} \\
+&= \frac{dS_1}{\sqrt{2}} \left[\begin{array}{lll} 1  & 1 & 0 \end{array} \right] \left[\begin{array}{lll}  2k+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array} \right] \frac{dS_1}{\sqrt{2}} \left[\begin{array}{l} 1 \\1 \\0 \end{array} \right] \\
+& =dS_1^2 (k+1)
+\end{array} 
+\ee
+and:
+\be
+\begin{array}{ll}
+(ds_2)^2& =d\bs{X}^{(2)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(2)} \\
+&= \frac{dS_2}{\sqrt{2}} \left[\begin{array}{lll} -1  & 1 & 0 \end{array} \right] \left[\begin{array}{lll}  2k+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array}
+\right] \frac{dS_2}{\sqrt{2}} \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right] \\
+&= dS_2^2 (k+1)
+\end{array} 
+\ee
+and:
+\be
+\begin{array}{ll}
+ds_1ds_2\cos \theta& =d\bs{X}^{(1)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(2)} \\
+&= \frac{dS_1}{\sqrt{2}} \left[\begin{array}{lll} 1  & 1 & 0 \end{array} \right] \left[\begin{array}{lll}  2k+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
+               \end{array} \right] \frac{dS_2}{\sqrt{2}} \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right] \\
+& = -k dS_1 dS_2
+\end{array}
+\ee
+
+We observe that for $k=1$:
+\be
+|\frac{ds_1}{dS_1}|=\sqrt{k+1}=\sqrt{2} \ne 1.581
+\ee
+\be
+|\frac{ds_2}{dS_2}|=\sqrt{k+1}=\sqrt{2} \ne 1.581
+\ee
+and:
+\be
+ds_1ds_2\cos \theta=-k dS_1dS_2 \to cos\theta =-\frac{1}{2}\ne -0.6
+\ee
+For $k=0.01$:
+\be
+|\frac{ds_1}{dS_1}|=\sqrt{k+1}=1.00498 \approx 1.005
+\ee
+\be
+|\frac{ds_2}{dS_2}|=\sqrt{k+1}=1.00498 \approx 1.005
+\ee
+and:
+\be
+ds_1ds_2\cos \theta=-k dS_1dS_2 \to cos\theta =-0.0099 \approx -0.00995
+\ee
+
+We observe that for small $k$ the infinitesimal strain tensor provides a good approximation. This is because the magnitude of the displacement gradients $\nabla \bs{U}$ are proportional to $k$ and therefore when $k$ is small, we expect $\bs{\epsilon}$ to be a good approximation.
+
+Observe also that the expressions for the infinitesimal strain tensor can be obtained by removing any $k^2$ order terms from the expressions with the Lagrangean strain tensor.
+
+\ei
+
+\newpage
+\item {\em  A motion is said to be irrotational if the spin tensor vanishes. Show that the following velocity field is irrotational:
+\be
+\bs{v}=\frac{-x_2 \bs{\hat{e}}_1+x_1\bs{\hat{e}}_2 }{r^2} \quad r^2=x_1^2+x_2^2
+\ee
+}
+
+The spin tensor $\bs{W}$ was defined as:
+\be
+\bs{W}=\frac{1}{2}( \nabla \bs{v}-(\nabla \bs{v})^T)
+\ee
+where $\nabla \bs{v}$ is the velocity gradient (spatial description).
+From the velocity field above we have that:
+\be
+[\bs{v}]=\frac{1}{r^4}\left[\begin{array}{lll}   2x_1x_2 & x_2^2-x_1^2 & 0 \\
+                             x_2^2-x_1^2 &-2x_1x_2 & 0 \\ 0 & 0 & 0
+                            \end{array}\right]
+\ee
+from which one can easily verify that:
+\be
+\bs{W}=\bs{0}.
+\ee
+
+\item (\textbf{Exam 2014})  Figure \ref{fig:glacier} 
+depicts the undeformed and deformed state of the same material body. In order to track the deformation a triangle ABC was drawn on the material. In the undeformed state, the length of all the sides was equal to $a_0=100~mm$. In the deformed state, the triangle has deformed and the length of its sides are $a_1=80~mm$ (side AB), $a_2=110~mm$ (side BC), $a_3=120~mm$ (side CA).
+Assuming that:
+\bi
+\item the deformation is homogeneous i.e. the deformation gradient $\bs{F}$ is constant in space
+\item the out-of-plane deformation is zero i.e. everything happens in the $X_1-X_2$ plane
+\item the deformations are large, i.e. the small deformations assumption (infinitesimal strain tensor) does NOT hold
+\ei
+You are asked to find the non-zero components of the Lagrangean strain tensor $\bs{E}=\frac{1}{2}(\bs{F}^T \bs{F}-\bs{I})$.  It suffices to find and clearly indicate the necessary equations for the determination of the components of $\bs{E}$ in order to get full credit.
+%\quelle{\bf ( 10 points)}
+
+\begin{figure}[!h]
+\psfrag{before}{\underline{Undeformed}}
+\psfrag{after}{\underline{Deformed}}
+\psfrag{A}{A}
+\psfrag{B}{B}
+\psfrag{C}{C}
+\psfrag{a0}{$a_0$}
+\psfrag{a1}{$a_1$}
+\psfrag{a2}{$a_2$}
+\psfrag{a3}{$a_3$}
+
+\psfrag{x1}{$X_1$}
+\psfrag{x2}{$X_2$}
+\centering
+  \includegraphics[height=5cm,width=.75\textwidth]{FIGURES/glacier.eps}
+ \caption{Problem Configuration}
+ \label{fig:glacier}
+\end{figure}
+
+\underline{Solution:}
+
+\begin{align}
+d\bs X^{(1)} &= 
+\begin{pmatrix}
+-\frac{1}{2} a_0\\
+-\frac{\sqrt{3}}{2} a_0
+\end{pmatrix}
+&&\textit{Side $AB$}, \\
+d\bs X^{(2)} &= 
+\begin{pmatrix}
+ a_0\\
+0
+\end{pmatrix}
+&&\textit{Side $BC$}, \\
+d\bs X^{(3)} &= 
+\begin{pmatrix}
+-\frac{1}{2} a_0\\
+\frac{\sqrt{3}}{2} a_0
+\end{pmatrix}
+&&\textit{Side $CA$}.
+\end{align}
+
+\begin{align}
+a_i^2 &= d\bs X^{(i)T} \bs F^T \bs F d \bs X^{(i)} = d\bs X^{(i)T} \bs C d \bs X^{(i)} && \textit{$i$ not summed,} \\
+a_1^2 &= dX_i^{(1)} C_{ij}dX_j^{(1)} = \frac{a_0^2}{4} C_{11} + \frac{\sqrt{3}}{2} a_0^2 C_{12} + \frac{3}{4} a_0^2 C_{22}, && \\
+a_2^2 &= dX_i^{(2)} C_{ij} dX_j^{(2)} = a_0^2 C_{11}, && \\
+a_3^2 &=dX_i^{(3)} C_{ij} dX_j^{(3)} = \frac{a_0^2}{4}C_{11} - \frac{\sqrt{3}}{2}a_0^2 C_{12} + \frac{3}{4}a_0^2 C_{22}.
+\end{align}
+
+We thus have 3 linear independent equations with 3 unknowns $C_{11},C_{12}, C_{22}$. Solving for $\bs C$, we can compute $\bs E$ by
+\be
+\bs C = 2\bs E + \bs I.
+\ee
+
+\item  (Exam 2015) A velocity field is defined in terms of the spatial coordinates and time by the
+equations:
+\be
+v_1 = 2tx_1 \sin x_3, \qquad v_2 = 2tx_2 \cos x_2, \qquad v_3.
+\ee
+At the point (1,1,0) and at time t = 1, determine:
+\bi
+\item the rate of deformation tensor $\bs D = \frac{1}{2}(\nabla^x \bs v + (\nabla^x \bs v)^T)$
+\item the time rate of extension per unit length in the direction $(\hat{\bs e}_1 + \hat{\bs e}_2 + \hat{\bs e}_3)/\sqrt{3}$
+\ei
+
+\underline{Solution:}
+\be
+D_{ij} = \frac{1}{2}(v_{i,j} + v_{j,i}).
+\ee
+
+\begin{align}
+&v_{1,1} = 2t\sin x_3 &&v_{2,1} = 0 &&&v_{3,1} = 0 \\ \nonumber
+&v_{1,2} = 0 &&v_{2,2} = 2t\cos x_2 - 2tx_2\sin x_2 &&&v_{3,2} = 0 \\ \nonumber
+&v_{1,3} = 2tx_1 \cos x_3 &&v_{2,3} = 0 &&&v_{3,3} = 0,
+\end{align}
+Hence
+\be
+\bs D = \begin{pmatrix}
+2t\sin x_3 & 0 & tx_1 \cos x_3 \\
+0 & 2t\cos x_2 - 2t x_2 \sin x_2 & 0 \\
+t x_1 \cos x_3 & 0 & 0
+\end{pmatrix},
+\ee
+\be
+\bs D(\bs x = (1,1,0), t = 1) = \begin{pmatrix}
+0 & 0 & 1 \\
+0 & 2\cos 1 - 2\sin 1 & 0 \\
+1 & 0 & 0
+\end{pmatrix}.
+\ee
+Lecture:
+
+For $d\bs x = \bs n dx$ with $\bs n$ the normalized direction vector,
+\be
+\frac{1}{dx}\frac{d}{dt}(dx) = \bs n \cdot \bs D \bs n = 2 + 2\cos 1 - 2\sin 1.
+\ee
+\end{enumerate}
+
+
+
+\end{document}

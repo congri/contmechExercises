@@ -1,0 +1,140 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2016/17}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung - Week 01}
+
+
+\begin{enumerate}
+\item (Exam WS2013) Which of the following equations are valid expressions using index notation? Justify your answer!
+\bi
+\item $\sigma_{ij}=C_{ijkl} \epsilon_{kl}$
+\item $a_i b_i = a_j b_j$
+\item $a_i b_j = a_j b_i$
+\item $\epsilon_{ijk}\epsilon_{ijk}=6$
+\item $\epsilon_{ijk} = -\epsilon_{jik}$
+\item $\epsilon_{ijk} = \epsilon_{kij}$
+\ei
+
+\item Match the meaning of each index notation expression shown below with an option from the list: \\
+a) $\lambda =T_{ij}S_{ij}$, \quad b)  $E_{ij}=T_{ik}S_{kj}$, \quad c) $E_{ij}=S_{ki}T_{kj}$, \quad d) 
+$a_i=\epsilon_{kij}b_j c_k$, \quad e)  $\lambda=a_ib_i$ \\ f) $\delta_{ij}$, \quad g) $T_{ij}v_j=\lambda v_i$, \quad h)
+$a_i=S_{ij}b_j$ , \quad i) $A_{ki}A_{kj}=\delta_{ij}$ , \quad j) $A_{ij}=A_{ji}$ \\
+\bi
+\item[1] Product of two tensors
+\item[2] Product of the transpose of a tensor with another tensor
+\item[3] Cross product of two vectors
+\item[4] Product of a vector and a tensor
+\item[5] Components of the identity tensor
+\item[6] Equation for the eigenvalues and eigenvectors of a tensor
+\item[7] Double-dot product (scalar product) of tensors
+\item[8] Dot product (inner product or scalar product) of two vectors
+\item[9] The definition of an orthogonal tensor
+\item[10] Definition of a symmetric tensor
+\ei
+
+\newpage
+\item Compute or simplify:
+\bi
+\item $x_i \delta_{ij}$
+\item $\delta_{ij}\delta_{ij}$
+\item $T_{ij}\delta_{jk}\delta_{ki}$
+\ei
+
+\item Show that $\delta_{ij} S_{jk} = S_{ik}$
+
+\item If $ T_{ij} =\lambda E_{kk}\delta_{ij}+2\mu E_{ij}$ show that:
+\bi
+\item $T_{ij} E_{ij}=2\mu E_{ij}E_{ij}+\lambda (E_{kk})^2$
+\item $T_{ij} T_{ij}= 4\mu ^2 E_{ij} E_{ij}+ (E_{kk})^2 (4\mu \lambda+3\lambda^2)$ 
+\ei
+
+
+\item If $S_{ij}=T_{ij} - \frac{1}{3}T_{kk} \delta_{ij}$, calculate $S_{ii}$ (a tensor with this property is called
+deviatoric, and $\bs S$ is called the deviatoric part of $\bs T$.)
+
+
+\item  Show that:
+\bi
+\item  If $T_{ij}=-T_{ji}$ , then $T_{ij} a_i a_j=0$
+\item If $T_{ij}=-T_{ji}$  and $S_{ij} =S_{ji}$ , then $T_{ij} S_{ij}=0$
+\ei
+
+\item Obtain the matrix for the $2^{\textrm{nd}}$ order tensor $\bs{T}$ that transforms the base vectors as follows: \\
+$\bs{T}\bs{e}_1=2\bs{e}_1+\bs{e}_3$, $\bs{T}\bs{e}_2=\bs{e}_2+3\bs{e}_3$, $\bs{T}\bs{e}_3=-\bs{e}_1+3\bs{e}_2$.
+
+\item  Let $\bs{T}$ and $\bs{T}'$ be the matrices of the same $2^{\textrm{nd}}$ order tensor in two different coordinate
+systems related by an orthogonal transformation matrix $\bs Q$. Show that $\det(\bs{T}) = \det(\bs{T}')$.
+
+
+\item  Let $\bs{F}$ be an arbitrary tensor.
+\bi
+\item Show that $\bs{F}\bs{F}^T$ and $\bs{F}^T\bs{F}$ are both symmetric tensors
+\item  If $\bs{F}=\bs{QU}=\bs{VQ}$ where $\bs{Q}$ is orthogonal and $\bs{U,V}$ are symmetric, show that
+$\bs{U}^2=\bs{F}^T\bs{F}$ and $\bs{V}^2=\bs{F}\bs{F}^T$.
+\ei
+
+\item  Let $\{\bs{\hat{e}}_i\}_{i = 1}^3$  and $\{\bs{\hat{e}}'_i\}_{i = 1}^3$ be two 3-dimensional orthonormal
+bases. If $\bs{\hat{e}}_i' = Q_{mi}\bs{\hat{e}}_m$,
+\bi
+\item  Verify $Q_{mi}Q_{mj}=Q_{im}Q_{jm}=\delta_{ij}$
+\item  Show that $\bs{\hat{e}}_i=Q_{im}\bs{\hat{e}}'_m$
+\ei
+
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,451 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+\usepackage{color}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2015/16}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung 05}
+
+
+\begin{enumerate}
+
+%Lai 5.63
+
+\item   Consider the Airy stress function $\phi=  a_1 x_1^2+   a_2 x_1 x_2 +  a_3 x_2^2$ . (a) Verify that it satisfies the biharmonic equation. (b) Determine
+the in-plane stresses $\sigma_{11}, \sigma_{12}$ and $\sigma_{22}$. (c) Determine and sketch the tractions on the four rectangular boundaries $x_1 = 0$,  $x_1 = b$,  $x_2=0$, $x_2= c$. (d) As a plane strain solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$ and all the strain components. (e) As a plane stress solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$
+and all the strain components.
+
+\underline{Solution:} \\
+\bi
+\item The biharmonic $\nabla^4 \phi=\frac{\pa^4  \phi}{\pa x_1^4}+2\frac{\pa^4  \phi}{\pa x_1^2 \pa x_2^2}+\frac{\pa^4  \phi}{\pa x_2^4}=0$ is satisfied as the fourth order derivatives are 0.
+
+\item 
+\be
+\begin{array}{l}
+\sigma_{11}=\frac{\pa^2  \phi}{\pa x_2^2}=2a_3 \\
+ \sigma_{22}=\frac{\pa^2  \phi}{\pa x_1^2}=2a_1 \\
+\sigma_{12}=-\frac{\pa^2  \phi}{\pa x_1 \pa x_2}=-a_2
+\end{array}
+\ee
+
+\item On the four boundaries we have:
+\bi
+\item At $x_1=0$, $\bs{n}=-\bs{\hat{e}}_1$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_1=0} \bs{n}=-\sigma_{11}(x_1=0)\bs{\hat{e}}_1-\sigma_{12}(x_1=0)\bs{\hat{e}}_2=-2a_3\bs{\hat{e}}_1+a_2\bs{\hat{e}}_2
+\ee
+\item At $x_1=b$, $\bs{n}=\bs{\hat{e}}_1$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_1=b} \bs{n}=\sigma_{11}(x_1=b)\bs{\hat{e}}_1+\sigma_{12}(x_1=b)\bs{\hat{e}}_2=2a_3\bs{\hat{e}}_1-a_2\bs{\hat{e}}_2
+\ee
+\item At $x_2=0$, $\bs{n}=-\bs{\hat{e}}_2$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_2=0} \bs{n}=
+-\sigma_{12}(x_2=0)\bs{\hat{e}}_1-\sigma_{22}(x_2=0)\bs{\hat{e}}_2=a_2\bs{\hat{e}}_1-2a_1\bs{\hat{e}}_2
+\ee
+\item At $x_2=c$, $\bs{n}=\bs{\hat{e}}_2$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_2=c} \bs{n}=\sigma_{12}(x_2=c)\bs{\hat{e}}_1+\sigma_{22}(x_2=c)\bs{\hat{e}}_2=-a_2\bs{\hat{e}}_1+2a_1\bs{\hat{e}}_2
+\ee
+
+\ei
+
+
+\item Under plane strain and for an isotropic material, the stresses are:
+\be
+\sigma_{33}=\nu(\sigma_{11}+\sigma_{22})=\nu (2a_3+2a_1), \quad \sigma_{13}=\sigma_{23}=0.
+\ee
+%Edited by C. Grigo, 25/01/16
+For the strains, we have
+\be
+\epsilon_{13} = \epsilon_{23} = \epsilon_{33} = 0 \qquad \textrm{(by definition)},
+\ee
+and from
+\be
+\epsilon_{ij} = \frac{1}{E}\left(\left(1 + \nu\right)\sigma_{ij} - \nu\sigma_{kk}\delta_{ij}\right),
+\label{strain}
+\ee
+we get
+\begin{align}
+\epsilon_{12} &= -\frac{a_2}{E}(1 + \nu), \\
+\epsilon_{11} &= \frac{1}{E}\left(2a_3 - 2\nu a_1 - 2\nu^2(a_1 + a_3) \right), \\
+\epsilon_{22} &= \frac{1}{E}\left(2a_1 - 2\nu a_3 - 2\nu^2 (a_1 + a_3\right).
+\end{align}
+
+\item Under plane stress conditions (by definition):
+\be
+\sigma_{13}=\sigma_{23}=\sigma_{33}=0.
+\ee
+%Edited by C. Grigo, 25/01/16
+Using equation \eqref{strain}, we get
+\begin{align}
+&\epsilon_{11} = \frac{2}{E}(a_3 - \nu a_1), \qquad \epsilon_{22} =  \frac{2}{E}(a_1 - \nu a_3), \qquad \epsilon_{33} = -\frac{2\nu}{E}(a_1 + a_3) \\ \nonumber
+&\epsilon_{12} = -\frac{a_2}{E}(1 + \nu), \qquad \epsilon_{13} = 0, \qquad \epsilon_{23} = 0.
+\end{align}
+
+\ei
+
+%Lai 5.65
+\item   Consider the Airy stress function $\phi=  a (x_1^4-x_2^4)$ . (a) Verify that it satisfies the biharmonic equation. (b) Determine the in-plane stresses $\sigma_{11}, \sigma_{12}$ and $\sigma_{22}$. (c) Determine and sketch the tractions
+on the four rectangular boundaries $x_1 = 0$,  $x_1 = b$,  $x_2=0$, $x_2= c$. (d) As a plane strain solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$ and all the strain components. (e) As a plane stress solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$
+and all the strain components.
+
+
+\underline{Solution:} \\
+\bi
+\item The biharmonic $\nabla^4 \phi=\frac{\pa^4  \phi}{\pa x_1^4}+2\frac{\pa^4  \phi}{\pa x_1^2 \pa x_2^2}+\frac{\pa^4  \phi}{\pa x_2^4}=24a+0-24a=0$ is satisfied.
+
+\item 
+\be
+\begin{array}{l}
+\sigma_{11}=\frac{\pa^2  \phi}{\pa x_2^2}=-12ax_2^2 \\
+ \sigma_{22}=\frac{\pa^2  \phi}{\pa x_1^2}=12ax_1^2 \\
+\sigma_{12}=-\frac{\pa^2  \phi}{\pa x_1 \pa x_2}=0
+\end{array}
+\ee
+
+
+\item On the four boundaries we have:
+\bi
+\item At $x_1=0$, $\bs{n}=-\bs{\hat{e}}_1$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_1=0} \bs{n}=-\sigma_{11}(x_1=0)\bs{\hat{e}}_1-\sigma_{12}(x_1=0)\bs{\hat{e}}_2=12ax_2^2\bs{\hat{e}}_1
+\ee
+\item At $x_1=b$, $\bs{n}=\bs{\hat{e}}_1$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_1=b} \bs{n}=\sigma_{11}(x_1=b)\bs{\hat{e}}_1+\sigma_{12}(x_1=b)\bs{\hat{e}}_2=-12ax_2^2\bs{\hat{e}}_1
+\ee
+\item At $x_2=0$, $\bs{n}=-\bs{\hat{e}}_2$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_2=0} \bs{n}=
+-\sigma_{12}(x_2=0)\bs{\hat{e}}_1-\sigma_{22}(x_2=0)\bs{\hat{e}}_2=-12ax_1^2\bs{\hat{e}}_2
+\ee
+\item At $x_2=c$, $\bs{n}=\bs{\hat{e}}_2$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_2=c} \bs{n}=\sigma_{12}(x_2=c)\bs{\hat{e}}_1+\sigma_{22}(x_2=c)\bs{\hat{e}}_2=12ax_1^2\bs{\hat{e}}_2
+\ee
+
+\ei
+
+
+\item Under plane strain and for an isotropic material:
+\be
+\sigma_{33}=\nu(\sigma_{11}+\sigma_{22})=12a\nu (-x_2^2+x_1^2), \quad \sigma_{13}=\sigma_{23}=0.
+\ee
+%Edited by C. Grigo 25/01/16
+For the strains, we get
+\be
+\epsilon_{13} = \epsilon_{23} = \epsilon_{33} = 0 \qquad \textrm{(by definition)},
+\ee
+and from equation \eqref{strain}
+\begin{align}
+\epsilon_{12} &= \frac{1 + \nu}{E} \sigma_{12} = 0, \\
+\epsilon_{11} &= -\frac{12a}{E}\left(x_2^2 + \nu x_1^2 + \nu^2(x_1^2 - x_2^2)\right), \\
+\epsilon_{22} &= \frac{12a}{E}\left(x_1^2 + \nu x_2^2 - \nu^2 (x_1^2 - x_2^2)\right).
+\end{align}
+
+
+\item Under plane stress conditions (by definition):
+\be
+\sigma_{13}=\sigma_{23}=\sigma_{33}=0,
+\ee
+%Edited by C. Grigo 25/01/16
+and for the strains
+\begin{align}
+\epsilon_{11} &= -\frac{12a}{E}\left(\nu x_1^2 + x_2^2\right), &\epsilon_{22} = \frac{12a}{E}\left(x_1^2 + \nu x_2^2\right), \\
+\epsilon_{33} &= \frac{12a\nu}{E}\left(x_2^2 - x_1^2\right), &\epsilon_{12} = 0, \\
+\epsilon_{13} &= 0, &\epsilon_{23} = 0.
+\end{align}
+
+\ei
+
+%Lai 5.66
+\item   Consider the Airy stress function $\phi=  a  x_1 x_2^2+  x_1 x_2^3$ . (a) Verify that it satisfies the biharmonic equation. (b) Determine the in-plane stresses $\sigma_{11}, \sigma_{12}$ and $\sigma_{22}$. (c)   Determine the condition necessary for the traction at $x_2 = c$ to vanish, (d) determine  the tractions on the remaining boundaries $x_1 = 0$,  $x_1 = b$,  $x_2=0$. 
+
+
+
+\underline{Solution:} \\
+
+\bi
+\item The biharmonic $\nabla^4 \phi=\frac{\pa^4  \phi}{\pa x_1^4}+2\frac{\pa^4  \phi}{\pa x_1^2 \pa x_2^2}+\frac{\pa^4  \phi}{\pa x_2^4}=0$ is satisfied as the fourth-order derivatives are zero.
+
+\item 
+\be
+\begin{array}{l}
+\sigma_{11}=\frac{\pa^2  \phi}{\pa x_2^2}=2ax_1+6x_1x_2 \\
+ \sigma_{22}=\frac{\pa^2  \phi}{\pa x_1^2}=0\\
+\sigma_{12}=-\frac{\pa^2  \phi}{\pa x_1 \pa x_2}=-2ax_2-3x_2^2
+\end{array}
+\ee
+
+
+\item At $x_2=c$, $\bs{n}=\bs{\hat{e}}_2$ and the traction vector $\bs{t}$ is:
+\be
+\bs{t}=\bs{\sigma} \bs{n}= \sigma_{12} \bs{\hat{e}}_1+\sigma_{22} \bs{\hat{e}}_2+\sigma_{23} \bs{\hat{e}}_3=\bs{0}
+\ee
+Hence we must have:
+\be
+\begin{array}{l}
+\sigma_{12}(x_2=c)=0 \to -2ac-3c^2=0 \to a=-3c/2 \\
+\sigma_{22}(x_2=c)=0 \to 0=0 \\
+\sigma_{23}(x_2=c)=0  \quad \textrm{(always)}
+\end{array}
+\ee
+
+\item On the remaining  boundaries we have:
+\bi
+\item At $x_1=0$, $\bs{n}=-\bs{\hat{e}}_1$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_1=0} \bs{n}=-\sigma_{11}(x_1=0)\bs{\hat{e}}_1-\sigma_{12}(x_1=0)\bs{\hat{e}}_2=(2ax_2+3x_2^2)\bs{\hat{e}}_2
+\ee
+\item At $x_1=b$, $\bs{n}=\bs{\hat{e}}_1$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_1=b} \bs{n}=\sigma_{11}(x_1=b)\bs{\hat{e}}_1+\sigma_{12}(x_1=b)\bs{\hat{e}}_2=(2ab+6bx_2)\bs{\hat{e}}_1-(2ax_2+3x_2^2)\bs{\hat{e}}_2
+\ee
+\item At $x_2=0$, $\bs{n}=-\bs{\hat{e}}_2$, the boundary tractions are:
+\be
+\bs{\sigma}|_{x_2=0} \bs{n}=
+-\sigma_{12}(x_2=0)\bs{\hat{e}}_1-\sigma_{22}(x_2=0)\bs{\hat{e}}_2=0
+\ee
+\ei
+
+
+
+\ei
+
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\psfrag{h}{$h$}
+\psfrag{l}{$l$}
+\psfrag{1}{$1$}
+\psfrag{p}{$P$}
+\includegraphics[width=0.65\textwidth]{FIGURES/psbeam2.eps}
+\label{fig:cantips}
+\caption{Problem 4}
+\end{figure}
+%Lai 5.67
+ \item Obtain the in-plane displacement components for the plane stress solution for the cantilever beam from the following strain-displacement relations:
+\be
+\epsilon_{11}=\frac{ \pa u_1}{\pa x_1}=-\frac{P x_1x_2}{E I}, \quad \epsilon_{22}=\frac{ \pa u_2}{\pa x_2}=\frac{\nu P x_1x_2}{E I}, \quad \epsilon_{12}=-\frac{P }{4 \mu  I} (h^2-x_2^2)
+\ee
+
+\underline{Solution:} \\
+
+(This is the solved example 5.23.1 in Lai et al.). Given that the displacements $u_1,u_2$ are solely functions of $x_1,x_2$, from the strain-displacement equations, we obtain:
+\be
+\begin{array}{l}
+ \epsilon_{11}=u_{1,1}=-\frac{P x_1x_2}{E I} \to u_1=-\frac{P x_1^2x_2}{2E I}+f_1(x_2) \\
+ \epsilon_{22}=u_{2,2}=\frac{\nu P x_1x_2}{E I} \to u_2=\frac{\nu P x_1x_2^2}{2E I}+f_2(x_1) 
+\end{array}
+\ee
+Finally:
+\be
+\begin{array}{l}
+\epsilon_{12}= \frac{1}{2}(u_{1,2}+u_{2,1})=-\frac{P }{4 \mu  I} (h^2-x_2^2)  \\
+\to   -\frac{P x_1^2}{2E I}+f_1'(x_2)+\frac{\nu P x_2^2}{2E I}+f_2'(x_1) =-\frac{P }{2 \mu  I} (h^2-x_2^2) \\
+\to \frac{P x_1^2}{2E I}-f_2'(x_1)=f_1'(x_2)+\frac{\nu P x_2^2}{2E I}+\frac{P }{2 \mu  I} (h^2-x_2^2)
+\end{array}
+\ee
+We observe that the term on the left is solely a function of $x_1$ and the term on the right only of $x_2$. The two terms can only be equal if they are both equal to a constant, say $b$. Hence:
+\be
+ \frac{P x_1^2}{2E I}-f_2'(x_1)=b \to f_2(x_1)=\frac{P x_1^3}{6E I} - bx_1 + c_2
+ \ee
+ and:
+ \be
+ f_1'(x_2)+\frac{\nu P x_2^2}{2E I}+\frac{P }{2 \mu  I} (h^2-x_2^2)=b \to f_1(x_2)=-\frac{\nu P x_2^3}{6E I}-\frac{P }{2 \mu 
+ I}(h^2x_2-\frac{x_2^3}{3})+bx_2+c_1
+ \ee
+ As a result:
+ \be
+ \begin{array}{l}
+ u_1=-\frac{P x_1^2x_2}{2E I}-\frac{\nu P x_2^3}{6E I}-\frac{P }{2 \mu  I}(h^2x_2-\frac{x_2^3}{3})+bx_2+c_1 \\
+ u_2=\frac{\nu P x_1x_2^2}{2E I}-bx_1+\frac{P x_1^3}{6E I}+c_2
+  \end{array}
+\ee
+ The coefficients $b,c_1,c_2$ should be determined from the boundary conditions.
+ As in the example 5.23.1 in Lai et al., we require:
+\be
+u_{2,1}(l,0)=0, \quad u_1(l,0)=0, \quad u_2(l,0)=0.
+\ee
+These lead to:
+\be
+\begin{array}{l}
+ b- \frac{P l^2}{2E I}=0 \to b=\frac{P l^2}{2E I} \\
+ c_1=0 \\
+ -bl+\frac{P l^3}{6E I}+c_2=0 \to c_2= \frac{Pl^3}{2E I} - \frac{Pl^3}{6EI} = \frac{Pl^3}{3EI}
+\end{array}
+\ee
+We conclude that:
+\be
+ \begin{array}{l}
+ u_1=-\frac{P x_1^2x_2}{2E I}-\frac{\nu P x_2^3}{6E I}-\frac{P }{2 \mu  I}(h^2x_2-\frac{x_2^3}{3})+\frac{P l^2}{2E I}x_2 \\
+ u_2=\frac{\nu P x_1x_2^2}{2E I}+\frac{P x_1^3}{6E I}-\frac{P l^2}{2E I}x_1+\frac{P l^3}{3E I}
+  \end{array}
+\ee
+
+
+
+\item (\textbf{Exam 2014}) 
+The isotropic, elastic block ABC  ($E,\nu$ are given) in Figure \ref{fig:dam} is under plane strain conditions. It is subjected to hydrostatic pressure  along AB (as shown in the Figure) and is free along AC.
+Given the Airy stress function:
+\be
+\phi(x,y)= \frac{1}{6} a_1 x^3+ \frac{1}{2} a_2 x^2 y+ \frac{1}{2} a_3x y^2 +\frac{1}{6}a_4 y^3
+\ee
+\bi
+\item Determine  {\em all} the stress components  inside ABC using the traction boundary conditions above. You can ignore the block's own weight.
+\item What tractions must be applied along BC in order for the block to be in equilibrium? Please provide a sketch with the appropriate values.
+
+\ei
+\begin{figure}[th]
+\psfrag{l}{$l$}
+\psfrag{p}{$\rho g y$}
+\psfrag{a}{$A$}
+\psfrag{B}{$B$}
+\psfrag{C}{$C$}
+\psfrag{x}{$x$}
+\psfrag{y}{$y$}
+\centering \includegraphics[width=0.45\textwidth,height=4cm]{FIGURES/dam.eps}
+\caption{ Problem configuration}
+\label{fig:dam}
+\end{figure}
+\newpage
+\underline{Solution:} \\
+\bi
+\item 
+% The biharmonic equation is satisfied since:
+% \be
+% \begin{array}{ll}
+%  \nabla^4 \phi & =\frac{\pa^4  \phi}{\pa x^4}+2\frac{\pa^4  \phi}{\pa x^2 \pa y^2}+\frac{\pa^4  \phi}{\pa y^4} \\
+%  & = 0 +0+0=0
+% \end{array}
+% \ee
+The stress components are:
+\be
+\begin{array}{l}
+\sigma_{xx}=\frac{\pa^2  \phi}{\pa y^2}=a_3x+a_4y\\
+ \sigma_{yy}=\frac{\pa^2  \phi}{\pa x^2}=a_1x+a_2y\\
+\sigma_{xy}=-\frac{\pa^2  \phi}{\pa x \pa y}=-(a_2x+a_3y)
+\end{array}
+\ee
+Under plain strain conditions $\sigma_{xz}=\sigma_{yz}=0$ and $\sigma_{zz}=\nu (\sigma_{xx}+\sigma_{yy})$.
+
+Along the boundary $AB$, the unit outward normal vector is $\bs{n}=-\hat{\bs{e}}_1$ and as a result:
+\begin{align}
+\bs t_{AB} &= \bs{\sigma}(x = 0,y) \bs{n}=-\sigma_{xx}(x=0,y) \hat{\bs{e}}_1-\sigma_{xy}(x=0,y) \hat{\bs{e}}_2 \\ 
+&=-a_4y\hat{\bs{e}}_1+a_3 y \hat{\bs{e}}_2. \nonumber
+\end{align}
+The externally applied pressure gives rise to a traction vector $\bs{t}_{AB}=\rho g y \hat{\bs{e}}_1$. Hence:
+\be
+\begin{array}{c}
+ -a_4y=\rho g y \to a_4=-\rho g, \\
+ a_3 y =0 \to a_3=0.
+\end{array}
+\ee
+Along the boundary $AC$, the unit outward normal vector is $\bs{n}=\frac{1}{\sqrt{2}}(\hat{\bs{e}}_1-\hat{\bs{e}}_2)$ and as a result:
+\begin{align}
+&\bs t_{AC} = \bs{\sigma}(x,y = x) \bs{n} \\ \nonumber 
+&=\frac{1}{\sqrt{2}}\left( \left(\sigma_{xx}(x,y = x) -\sigma_{xy}(x,y = x)\right)\hat{\bs{e}}_1+(\sigma_{xy}(x,y = x)-\sigma_{yy}(x, y = x))\hat{\bs{e}}_2
+\right)
+\\
+\nonumber
+&=\frac{1}{\sqrt{2}}\left( (a_4x+a_2x)\hat{\bs{e}}_1+(-a_2x-(a_1+a_2)x)\hat{\bs{e}}_2 \right)  \\ \nonumber
+&=\frac{1}{\sqrt{2}}\left( (a_4+a_2)x\hat{\bs{e}}_1-(a_1+2a_2)x\hat{\bs{e}}_2 \right).
+\end{align}
+The externally applied traction along $AC$ is $\bs{t}_{AC}=\bs{0}$. Hence:
+\be
+\begin{array}{c}
+ (a_4+a_2)x=0 \to a_2=-a_4=\rho g, \\
+ -(a_1+2a_2)x=0 \to a_1=-2a_2=-2\rho g.
+\end{array}
+\ee
+
+
+\item Along $BC$, the unit outward normal vector is $\bs{n}=\hat{\bs{e}}_2$ and as a result the traction vector along this boundary is (Figure
+\ref{fig:damsol}):
+\be
+\begin{array}{ll}
+\bs{t}_{BC} & =\bs{\sigma}(x, y = l) \bs{n}=\sigma_{xy}(x, y = l) \hat{\bs{e}}_1+\sigma_{yy}(x, y = l) \hat{\bs{e}}_2 \\
+& =-(a_2 x +a_3 l)\hat{\bs{e}}_1+(a_1x+a_2 l) \hat{\bs{e}}_2 \\
+& = -\rho g x \hat{\bs{e}}_1+(-2\rho g x +\rho g l) \hat{\bs{e}}_2.
+\end{array}
+\ee
+
+
+\begin{figure}[th]
+\psfrag{l}{$l$}
+\psfrag{p}{$\rho g y$}
+\psfrag{a}{$A$}
+\psfrag{B}{$B$}
+\psfrag{C}{$C$}
+\psfrag{x}{$x$}
+\psfrag{y}{$y$}
+\psfrag{tx1}{$-\rho g l$}
+\psfrag{ty1}{$-\rho g l$}
+\psfrag{ty2}{$\rho g l$}
+\centering \includegraphics[width=0.45\textwidth,height=4cm]{FIGURES/dam_solution.eps}
+\caption{ Solution}
+\label{fig:damsol}
+\end{figure}
+
+
+\ei
+
+
+
+\end{enumerate}
+
+\end{document}

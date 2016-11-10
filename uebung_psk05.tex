@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+\usepackage{color}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung05}
+
+
+
+\begin{enumerate}
+
+%Lai 5.63
+
+\item   Consider the Airy stress function $\phi=  a_1 x_1^2+   a_2 x_1 x_2 +  a_3 x_2^2$ . (a) Verify that it satisfies the biharmonic equation. (b) Determine the in-plane stresses $\sigma_{11}, \sigma_{12}$ and $\sigma_{22}$. (c) Determine and sketch the tractions
+on the four rectangular boundaries $x_1 = 0$,  $x_1 = b$,  $x_2=0$, $x_2= c$. (d) As a plane strain solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$ and all the strain components. (e) As a plane stress solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$
+and all the strain components.
+
+%Lai 5.65
+\item   Consider the Airy stress function $\phi=  a (x_1^4-x_2^4)$ . (a) Verify that it satisfies the biharmonic equation. (b) Determine the in-plane stresses $\sigma_{11}, \sigma_{12}$ and $\sigma_{22}$. (c) Determine and sketch the tractions
+on the four rectangular boundaries $x_1 = 0$,  $x_1 = b$,  $x_2=0$, $x_2= c$. (d) As a plane strain solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$ and all the strain components. (e) As a plane stress solution, determine $\sigma_{13}$, $\sigma_{23}$, $\sigma_{33}$
+and all the strain components.
+
+%Lai 5.66
+\item   Consider the Airy stress function $\phi=  a  x_1 x_2^2+  x_1 x_2^3$ . (a) Verify that it satisfies the biharmonic equation. (b) Determine the in-plane stresses $\sigma_{11}, \sigma_{12}$ and $\sigma_{22}$. (c)   Determine the condition necessary for the traction at $x_2 = c$ to vanish, (d) determine  the tractions on the remaining boundaries $x_1 = 0$,  $x_1 = b$,  $x_2=0$. 
+
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\psfrag{h}{$h$}
+\psfrag{l}{$l$}
+\psfrag{1}{$1$}
+\psfrag{p}{$P$}
+\includegraphics[width=0.65\textwidth]{FIGURES/psbeam2.eps}
+\label{fig:cantips}
+\caption{Problem 4}
+\end{figure}
+%Lai 5.67
+ \item Obtain the in-plane displacement components for the plane stress solution for the cantilever beam from the following strain-displacement relations:
+\be
+\epsilon_{11}=\frac{ \pa u_1}{\pa x_1}=-\frac{P x_1x_2}{E I}, \quad \epsilon_{22}=\frac{ \pa u_2}{\pa x_2}=\frac{\nu P x_1x_2}{E I}, \quad \epsilon_{12}=-\frac{P }{4 \mu  I} (h^2-x_2^2)
+\ee
+
+\item (\textbf{Exam 2014}) 
+The isotropic, elastic block ABC  ($E,\nu$ are given) in Figure \ref{fig:dam} is under plane strain conditions. It is subjected to hydrostatic pressure  along AB (as shown in the Figure) and is free along AC.
+Given the Airy stress function:
+\be
+\phi(x,y)= \frac{1}{6} a_1 x^3+ \frac{1}{2} a_2 x^2 y+ \frac{1}{2} a_3x y^2 +\frac{1}{6}a_4 y^3
+\ee
+\bi
+\item Determine  {\em all} the stress components  inside ABC using the traction boundary conditions above. You can ignore the block's own weight.
+\item What tractions must be applied along BC in order for the block to be in equilibrium? Please provide a sketch with the appropriate values.
+
+\ei
+\begin{figure}[th]
+\psfrag{l}{$l$}
+\psfrag{p}{$\rho g y$}
+\psfrag{a}{$A$}
+\psfrag{B}{$B$}
+\psfrag{C}{$C$}
+\psfrag{x}{$x$}
+\psfrag{y}{$y$}
+\centering \includegraphics[width=0.45\textwidth,height=4cm]{FIGURES/dam.eps}
+\caption{ Problem configuration}
+\label{fig:dam}
+\end{figure}
+\newpage
+
+\end{enumerate}
+
+\end{document}

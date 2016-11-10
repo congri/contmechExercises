@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2016/17}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung - Week 02}
+
+
+\begin{enumerate}
+\item Let $\bs{A}$ be a matrix with columns consisting of the vectors $\bs a, \bs b, \bs c$. Show that:
+\be
+\det(\bs{A})=(\bs{a} \times \bs{b}) \cdot \bs{c}
+\ee
+\item In standard basis, a tensor $\bs{T}$ has the matrix
+\be
+\bs{T}=\left[\begin{array}{lll}
+   1&  1 & 0 \\          1 & 1 & 0 \\ 0 & 0 & 2 
+             \end{array}
+\right].
+\ee
+\bi
+\item  Find the principal values and three mutually perpendicular principal directions.
+\item Find the maximum and minimum values that the diagonal entries of $\bs{T}$ can take under various coordinate
+systems.
+\ei
+
+\item Let $r^2=x_k x_k$. Find $\frac{\pa r}{\pa x_j}$ and $\frac{\pa^2 r}{\pa x_i \pa x_j}$.
+
+\item  Let $\bs{D}$ be a constant tensor whose components do not depend upon
+the coordinates. Show that:
+\be
+\nabla (\bs{D} \bs{x})=\bs{D}
+\ee
+
+\item  Consider the scalar field $\phi=x_1^2+3x_1x_2+2x_3$
+\bi
+\item  Find the unit vector normal to the surface of constant $\phi$ at the origin and at $(1,0,1)$. 
+\item What is the maximum value of the directional derivative of $\phi$ at the origin/ at (1,0,1)? 
+\item  Evaluate $d\phi/d r$ at the origin if $d\bs{r}=dr(\bs{\hat{e}}_1+\bs{\hat{e}}_3)$
+\ei
+
+\item If $\phi(\bs{x})$ and $\psi(\bs{x})$ are scalar functions, show that for any domain $\mathcal{B}$ with bounding
+surface $\pa \mathcal{B}$:
+\be
+\int_{\mathcal B}( \psi \phi_{,ii}+\psi_{,i}\phi_{,i})~dV=\int_{\pa \mathcal{B}} \psi \phi_i n_i dA
+\ee
+where $n_i$ is the unit outward normal, $dV$ implies integration over the volume and $dA$ integration over the bounding surface's area.
+
+\item (Exam WS14) Consider  a three-dimensional material body occupying a domain $\mathcal{B}$ with a  a volume $V$. Let
+$x_i$ denote the position vector,  $S$ denote the boundary surface and $n_i$ the unit,  outward normal vector. Explain why
+\be
+\int_S x_i n_j dS=\delta_{ij} V
+\ee
+where the first integral is over the bounding surface.
+
+\item (Exam WS15) Consider a material body occupying the three-dimensional unit cube $[0, 1]^3$.
+Let $x_i$ denote the position vector, $S$ denote the external boundary surface of the cube and $n_i$
+the unit, outward normal vector to $S$. For the following integral over the boundary surface
+$S$:
+\be
+\int_S x_i x_j n_j dS
+\ee
+\begin{itemize}
+\item[a)] Which order tensor will the result be (e.g. $0^{th}, 1^{st}, 2^{nd}$ etc)?
+\item[b)] Compute the components of this tensor
+\end{itemize}
+
+
+
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+\usepackage{color}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung04}
+
+
+\begin{enumerate}
+\item (\textbf{Exam 2013}) 
+For an isotropic linearly elastic solid under small deformations, the stress-strain relation is $\sigma_{ij}=\lambda \delta_{ij} \epsilon_{kk}+2\mu \epsilon_{ij}$ where $\lambda, \mu$ are Lam\'e's constants.
+If the  displacement field is:
+\be
+u_1= k x_3 x_2, \quad  u_2= kx_3 x_1, \quad  u_3= k (x_1x_2+x_3^2)%, \quad k=10^{-4}
+\ee
+\bi
+\item  Find the stress components.
+\item  In the absence of body forces, check whether  the state of stress corresponds to an
+equilibrium stress field.
+\ei
+
+
+\item  An isotropic elastic body with $E=  207~ GPa$, $\mu= 79.2~GPa$,  has a uniform state of stress given by:
+\be
+[\bs{\sigma}]=\left[\begin{array}{ccc} 100 & 40 & 60 \\ 40 & -200 & 0 \\ 60 & 0 & 200 \end{array} \right] ~MPa
+\ee
+\bi
+\item What are the strain components?
+\item  What is the total change of volume for a five-centimeter cube of the material?
+\ei
+
+%Mase 6.4
+\item  For an isotropic elastic medium, express the strain energy density function $U$ in terms of:
+\bi
+\item the components of $\epsilon_{ij}$
+\item the components of $\sigma_{ij}$
+\item the invariants of $\epsilon_{ij}$
+\ei
+
+
+
+\item  Given the following displacement field in an isotropic linearly elastic solid:
+\be
+u_1= k x_3 x_2, \quad  u_2= kx_3 x_1, \quad  u_3= k (x_1^2-x_2^2), \quad k=10^{-4}
+\ee
+\bi
+\item  Find the stress components, and
+\item  In the absence of body forces, check whether  the state of stress corresponds to an
+equilibrium stress field?
+\ei
+
+\item  Let the stress field for a continuum be given by:
+\be
+[\bs{\sigma}]=\left[\begin{array}{ccc} x_1+x_2 & \sigma_{12}(x_1,x_2) & 0 \\  \sigma_{12}(x_1,x_2) & x_1-x_2 & 0 \\ 0 & 0 & x_2 \end{array} \right]
+\ee
+If the equilibrium equations are satisfied in the absence of body forces and if the stress vector on the plane perpendicular to  $\bs{\hat{e}}_1$ at $x_1 = 1$ is given by $\bs{t} = (1 + x_2) \bs{\hat{e}}_1 + (6 -x_2 )\bs{\hat{e}}_2$, determine $\sigma_{12}(x_1,x_2)$.
+%Answer: σ12 = x1 – x2 + 5
+
+\item  A composite bar, formed by welding two slender, cylindrical bars of equal length and equal cross-sectional area, is
+loaded by an axial load P as shown in Figure \ref{fig:543}. If the Young's moduli of the two portions are $E_1$ and $E_2$,  find how the applied force is distributed between the two halves.
+\begin{figure}[!h]
+\centering
+ \includegraphics[width=.75\textwidth]{FIGURES/problem5.43.eps}
+\caption{Uniaxial extension of a prismatic bar}
+\label{fig:543}
+\end{figure}
+
+\item Consider the case of pure bending discussed in class (Figure \ref{fig:pb}) with moment couple $\bs{M}_R=-\bs{M}_L=M\hat{\bs{e}}_2$. The  $x_1$ axis is passing
+through the centroids of all the cross-sections  and the  $x_2$ and $x_3$ axes are the principal axes. The beam is subjected to the following constraints: 
+\bi
+\item  The origin $(0,0,0)$ is fixed, 
+\item $\frac{\pa u_3}{\pa x_2}=0$ at the origin
+\item  the centroid at the right end section can only move horizontally in the $x_1$ direction. \ei
+\bi
+\item Obtain the displacement field and show that every plane cross-section remains a plane after bending and 
+\item Obtain the deformed shape of the centroidal line of the beam, regarded as the deflection of the beam.
+\ei
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\psfrag{x3}{$x_3$}
+\psfrag{ML}{$M_L$}
+\psfrag{MR}{$M_R$}
+\psfrag{l}{$l$}
+ \includegraphics[width=.75\textwidth]{FIGURES/bending.eps}
+\caption{Pure bending of a prismatic bar}
+\label{fig:pb}
+\end{figure}
+
+
+\end{enumerate}
+
+
+
+\end{document}

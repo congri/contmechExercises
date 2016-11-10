@@ -1,0 +1,282 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+\usepackage{paralist} %enumerate with a) b) c) etc.
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung - Week 01}
+
+
+\begin{enumerate}
+
+\item (Exam WS2013) Which of the following equations are valid expressions using index notation? If you decide an expression is invalid, state which rule is violated:
+\bi
+\item $\sigma_{ij}=C_{ijkl} \epsilon_{kl}$
+\item $\epsilon_{kkk}=0$
+\item $\epsilon_{ijk}\epsilon_{ijk}=6$
+\ei
+
+\underline{Solution:}
+\bi
+\item \makebox[3cm]{$\sigma_{ij}=C_{ijkl} \epsilon_{kl}$\hfill} \textit{valid}
+\item \makebox[3cm]{$\epsilon_{kkk}=0$\hfill} \textit{invalid: only 2 repeated indices are summed}
+\item \makebox[3cm]{$\epsilon_{ijk}\epsilon_{ijk}=6$\hfill} \textit{valid}
+\ei
+
+\item Match the meaning of each index notation expression shown below with an option from the list: \\
+a) $\lambda =T_{ij}S_{ij}$, ~~~b)  $E_{ij}=T_{ik}S_{kj}$, ~~~c) $E_{ij}=S_{ki}T_{kj}$, ~~~d)  $a_i=\epsilon_{kij}b_j c_k$, ~~~e)  $\lambda=a_ib_i$ \\ 
+f) $\delta_{ij}$, ~~~g) $T_{ij}v_j=\lambda v_i$, ~~~h) $a_i=S_{ij}b_j$ , ~~~i) $A_{ki}A_{kj}=\delta_{ij}$ , ~~~j) $A_{ij}=A_{ji}$ \\
+\bi
+\item[1] Product of two tensors
+\item[2] Product of the transpose of a tensor with another tensor
+\item[3] Cross product of two vectors
+\item[4] Product of a vector and a tensor
+\item[5] Components of the identity tensor
+\item[6] Equation for the eigenvalues and eigenvectors of a tensor
+\item[7] Double-dot product (scalar product) of tensors
+\item[8] Dot product (inner product or scalar product) of two vectors
+\item[9] The definition of an orthogonal tensor
+\item[10] Definition of a symmetric tensor
+\ei
+\underline{Solution:}
+\begin{compactenum}[a)]
+  \item \makebox[3cm]{$\lambda =T_{ij}S_{ij}$\hfill} \textit{Double-dot product (scalar product) of tensors}
+  \item \makebox[3cm]{$E_{ij}=T_{ik}S_{kj}$\hfill} \textit{Product of two tensors}
+  \item \makebox[3cm]{$E_{ij}=S_{ki}T_{kj}$\hfill} \textit{Product of the transpose of a tensor with another tensor}
+  \item \makebox[3cm]{$a_i=\epsilon_{kij}b_j c_k$\hfill} \textit{Cross product of two vectors}
+  \item \makebox[3cm]{$\lambda=a_ib_i$\hfill} \textit{Dot product (inner product or scalar product) of two vectors}
+  \item \makebox[3cm]{$\delta_{ij}$\hfill} \textit{Components of the identity tensor}
+  \item \makebox[3cm]{$T_{ij}v_j=\lambda v_i$\hfill} \textit{Equation for the eigenvalues and eigenvectors of a tensor}
+  \item \makebox[3cm]{$a_i=S_{ij}b_j$\hfill} \textit{Product of a vector and a tensor}
+  \item \makebox[3cm]{$A_{ki}A_{kj}=\delta_{ij}$\hfill} \textit{The definition of an orthogonal tensor}
+  \item \makebox[3cm]{$A_{ij}=A_{ji}$\hfill} \textit{Definition of a symmetric tensor}
+\end{compactenum}
+
+
+
+\item Compute or simplify:
+\bi
+\item $\delta_{ij}\delta_{ij}$
+\item $T_{ij}\delta_{jk}\delta_{ki}$
+\ei
+%
+
+\underline{Solution:} \\
+ Summation convention: when an index appears exactly twice, then we sum with repsect to this index. Kronecker delta $\delta_{ij}=1$ if $i=j$ and
+ $\delta_{ij}=0$ if $i\ne j$.
+\bi
+\item $\delta_{ij}\delta_{ij}=\sum_{i=1}^3 \sum_{j=1}^3 \delta_{ij}\delta_{ij}=\sum_{i=1}^3 \delta_{ii}=\delta_{ii}=\delta_{11}+\delta_{22}+\delta_{33}=3$.
+\item Similarly
+\begin{align}
+T_{ij}\delta_{jk}\delta_{ki} &= \sum_{i=1}^3\sum_{j=1}^3 \sum_{k=1}^3 T_{ij}\delta_{jk}\delta_{ki}=\sum_{i=1}^3\sum_{j=1}^3  T_{ij}\delta_{ji} = \sum_{i=1}^3
+T_{ii} \\ \nonumber
+&= T_{ii} = \textrm{Tr}(\bs T) = T_{11}+T_{22}+T_{33}.
+\end{align}
+\ei
+
+
+%
+\item If $ T_{ij} =\lambda E_{kk}\delta_{ij}+2\mu E_{ij}$ show that:
+\bi
+\item $T_{ij} E_{ij}=2\mu E_{ij}E_{ij}+\lambda (E_{kk})^2$
+\item $T_{ij} T_{ij}= 4\mu ^2 E_{ij} E_{ij}+ (E_{kk})^2 (4\mu \lambda+3\lambda^2)$ 
+\ei
+%
+\underline{Solution:} \\
+\bi
+\item By substitution and employment of the summation convention, we obtain:
+\be
+\begin{array}{ll}
+ T_{ij} E_{ij} &=(\lambda E_{kk}\delta_{ij}+2\mu E_{ij})E_{ij} \\
+ &= \lambda E_{kk} \delta_{ij}E_{ij}+2\mu E_{ij} E_{ij} \\
+ &= \lambda E_{kk} E_{ii}+ 2\mu E_{ij} E_{ij} \\
+ &=\lambda(E_{kk})^2+ 2\mu E_{ij} E_{ij}.
+\end{array}
+\ee
+\item Also (change naming of dummy indices to make sure that they appear only twice)
+\be
+\begin{array}{ll}
+ T_{ij} T_{ij} &=(\lambda E_{kk}\delta_{ij}+2\mu E_{ij})(\lambda E_{ll}\delta_{ij}+2 \mu E_{ij}) \\
+ &= \lambda^2 E_{kk} E_{ll} \delta_{ij}\delta_{ij}+\lambda E_{kk}\delta_{ij}2 \mu E_{ij}+
+ 2\mu E_{ij}\lambda E_{ll}\delta_{ij}+4\mu^2 E_{ij} E_{ij} \\
+  &= 3 \lambda^2 E_{kk} E_{ll} + 2\lambda \mu E_{kk} E_{ii} +2\lambda \mu E_{ll} E_{ii}+ 4\mu^2 E_{ij} E_{ij}  \\
+ &=4\mu ^2 E_{ij} E_{ij}+ (E_{kk})^2 (4\mu \lambda+3\lambda^2).
+\end{array}
+\ee
+\ei
+
+\item If $S_{ij}=T_{ij}-\frac{1}{3}T_{kk} \delta_{ij}$, calculate $S_{kk}$ (a tensor with this property is called deviatoric, and $S$ is 
+called the deviatoric part of $T$).
+
+
+\underline{Solution:}
+\be
+S_{ii}=T_{ii}-\frac{1}{3}T_{kk} \delta_{ii}=T_{ii}-\frac{1}{3}T_{kk} 3=T_{ii}-T_{kk}=0.
+\ee
+
+%
+\item  Show that:
+\bi
+\item  If $T_{ij}=-T_{ji}$ , then $T_{ij} a_i a_j=0$
+\item If $T_{ij}=-T_{ji}$  and $S_{ij} =S_{ji}$ , then $T_{ij} S_{ij}=0$
+\ei
+
+\underline{Solution:}
+\bi
+\item Note that since $i,j$ are dummy indices, they can be relabeled:
+\begin{align}
+T_{ij} a_i a_j &= T_{ji} a_j a_i && \textit{relabeling: $i$ is called $j$, $j$ is called $i$} \\ \nonumber
+&= -T_{ij}a_ja_i && \textit{use antisymmetry of ~$\bs T$} \\ \nonumber
+&=-T_{ij}a_ia_j && \textit{commutation of $a_i,a_j$} \\ \nonumber
+& = 0.
+\end{align}
+\item  Note that since $i,j$ are dummy indices they can be relabeled:
+\begin{align}
+ T_{ij} S_{ij} &= T_{ji}S_{ji} && \textit{relabeling: $i$ is called $j$, $j$ is called $i$} \\ \nonumber
+ &=-T_{ij} S_{ij} && \textit{use antisymmetry of ~$\bs T$ and symmetry of ~$\bs S$} \\ \nonumber
+ &= 0.
+\end{align}
+\ei
+
+
+\item Obtain the matrix for the tensor $\bs{T}$, that transforms the base vectors as follows: $\bs{T}\bs{e}_1=2\bs{e}_1+\bs{e}_3$,
+$\bs{T}\bs{e}_2=\bs{e}_2+3\bs{e}_3$, $\bs{T}\bs{e}_3=-\bs{e}_1+3\bs{e}_2$.
+%
+
+\underline{Solution:}
+\be
+T_{ij} = \bs e_i \cdot \bs T \bs e_j,
+\ee
+hence
+\be
+[\bs{T}]=\left[ \begin{array}{lll} 2 & 0 & -1 \\ 0 & 1& 3 \\ 1 &3 & 0 \end{array} \right]
+\ee
+(see also solved examples 2.7.1, 2.7.2, 2.7.3 in Lai et al.)
+
+\item  Let $[\bs{T}]$ and $[\bs{T}']$ the matrices of the same tensor in two different coordinate systems (connected by a rotation or reflection). Show that
+\be
+\det[\bs{T}]=\det[\bs{T}'].
+\ee
+%
+
+\underline{Solution:}
+We have established that $[\bs{T}']=[\bs{Q}]^T[\bs{T}][\bs{Q}]$ where $[\bs{Q}]$ is orthogonal (rotation/reflection), i.e. $\det[\bs{Q}]=\pm 1$. From the
+properties of the determinant we have:
+\be
+\det [\bs{T}']=\det[\bs{Q}]^T \det[\bs{T}]\det[\bs{Q}] =(\det[\bs{Q}])^2 \det[\bs{T}]=\det[\bs{T}].
+\ee
+%
+
+\item  Let $\bs{F}$ be an arbitrary tensor.
+\bi
+\item Show that $\bs{F}\bs{F}^T$ and $\bs{F}^T\bs{F}$ are both symmetric tensors
+\item  If $\bs{F}=\bs{QU}=\bs{VQ}$ where $\bs{Q}$ is orthogonal and $\bs{U,V}$ are symmetric, show that $\bs{U}^2=\bs{F}^T\bs{F}$ and $\bs{V}^2=\bs{F}\bs{F}^T$.
+\ei
+
+\underline{Solution:}
+\bi
+\item Using matrix notation:
+\be 
+\left([\bs{F}][\bs{F}^T]\right)^T=[\bs{F}^T]^T[\bs{F}^T]=[\bs{F}][\bs{F}^T]
+\ee
+Similarly:
+\be
+\left([\bs{F^T}][\bs{F}]\right)^T=[\bs{F}]^T[\bs{F^T}]^T=[\bs{F^T}][\bs{F}]
+\ee
+
+\item Using matrix notation and from orthogonality of $\bs{Q}$:
+\be
+[\bs{F^T}][\bs{F}]=[\bs{U^T}][\bs{Q}^T][\bs{Q}][\bs{U}]=[\bs{U^T}][\bs{U}]=[\bs{U}]^2
+\ee
+and:
+\be 
+[\bs{F}][\bs{F^T}]=[\bs{V}][\bs{Q}][\bs{Q^T}][\bs{V^T}]=[\bs{V}][\bs{V^T}]=[\bs{V}]^2
+\ee
+
+\ei
+
+
+\item  Let $\{\bs{\hat{e}}_i\}$  and $\{\bs{\hat{e}}'_i\}$   be two rectangular Cartesian base vectors. 
+\bi
+\item  Show that if $\bs{\hat{e}}'_i=Q_{mi}\bs{\hat{e}}_m$ then $\bs{\hat{e}}_i=Q_{im}\bs{\hat{e}}'_m$
+\item  Verify $Q_{mi}Q_{mj}=Q_{im}Q_{jm}=\delta_{ij}$
+\ei
+
+\underline{Solution:}
+
+\bi
+\item We have that $\bs{\hat{e}}_i \cdot \bs{\hat{e}}_j=\bs{\hat{e}}'_i \cdot \bs{\hat{e}}'_j=\delta_{ij}$. 
+Hence:
+\be
+\delta_{ij}=\bs{\hat{e}}'_i \cdot \bs{\hat{e}}'_j=Q_{mi}\bs{\hat{e}}_m \cdot Q_{nj}\bs{\hat{e}}_n=Q_{mi}Q_{nj} \bs{\hat{e}}_m \cdot \bs{\hat{e}}_n =
+Q_{mi}Q_{nj}\delta_{mn}=Q_{mi}Q_{mj}
+\ee
+Hence $\bs{Q}^T\bs{Q}=\bs{I}$, i.e. $\bs{Q}$ is orthogonal and also $\bs{Q}\bs{Q}^T=\bs{I}$ or $Q_{im}Q_{jm}=\delta_{ij}$.
+Finally, by multiplying $\bs{\hat{e}}'_i=Q_{mi}\bs{\hat{e}}_m$ with $Q_{ni}$, we obtain:
+\be
+\begin{array}{l}
+Q_{ni} \bs{\hat{e}}'_i=Q_{ni} Q_{mi}\bs{\hat{e}}_m \\
+=\delta_{nm} \bs{\hat{e}}_m \\
+=\bs{\hat{e}}_n, \\
+\to \bs{\hat{e}}_i=Q_{im} \bs{\hat{e}}'_m.
+\end{array}
+\ee
+
+\ei
+
+\end{enumerate}
+
+
+
+\end{document}

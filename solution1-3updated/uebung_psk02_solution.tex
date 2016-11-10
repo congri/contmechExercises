@@ -1,0 +1,283 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+\usepackage{paralist} %enumerate with a) b) c) etc.
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung - Week 02}
+
+
+\begin{enumerate}
+\item Let $[\bs{A}]$ be a matrix with columns consisting of the vectors $\bs{a,b,c}$. Show that:
+\be
+det(\bs{A})=(\bs{a} \times \bs{b}) \cdot \bs{c}
+\ee
+
+\underline{Solution:} \\
+The matrix $[\bs{A}]$ is given by:
+\be
+[\bs{A}]=\left[ \begin{array}{lll} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2\\ a_3 & b_3 & c_3 \end{array} \right],
+\ee
+where $a_i,b_i,c_i$ are the components of the vectors $\bs{a,b,c}$.
+From definition, its determinant is:
+\be
+\begin{array}{ll}
+\det [\bs{A}] &=a_1 \left| \begin{array}{ll}  b_2 & c_2 \\  b_3 & c_3 \end{array} \right|-a_2\left| \begin{array}{ll}  b_1 & c_1 \\  b_3 & c_3 \end{array}
+\right|+a_3 \left|\begin{array}{ll}  b_1 & c_1 \\  b_2 & c_2 \end{array} \right| \\
+&=a_1b_2c_3-a_1b_3c_2-a_2b_1c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1.
+\end{array}
+\ee
+Furthermore, the product $(\bs{a} \times \bs{b}) \cdot \bs{c}$ can be written as:
+\be
+(\bs{a} \times \bs{b}) \cdot \bs{c}=\epsilon_{ijk}a_ib_jc_k
+\ee
+where $\epsilon_{ijk}$ is the permutation symbol in section 2.4. of Lai et al. Expanding the summations in the expression above, we get (see Eqs. 2.4.2 in Lai
+et al.)
+\be
+(\bs{a} \times \bs{b}) \cdot \bs{c}=a_1b_2c_3-a_1b_3c_2-a_2b_1c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1=\det [\bs{A}].
+\ee
+\item   A tensor $\bs{T}$ has a matrix given below.
+\be
+\bs{T}=\left[\begin{array}{lll}
+   1&  1 & 0 \\          1 & 1 & 0 \\ 0 & 0 & 2 
+             \end{array}
+\right]
+\ee
+\bi
+\item  Find the principal values and three mutually perpendicular principal directions.
+\item Find the maximum and minimum values that  the diagonal terms of $\bs{T}$ can take under various coordinate systems.
+\ei
+
+\underline{Solution:} \\
+\bi
+\item The principal values (eigenvalues) $\lambda$ can be found by solving the following equation:
+\be
+det(\bs{T}-\lambda \bs{I})=0 \to \left| \begin{array}{lll}
+   1-\lambda&  1 & 0 \\          1 & 1-\lambda & 0 \\ 0 & 0 & 2-\lambda 
+             \end{array} \right|=0
+             \ee
+which           leads to:
+\be
+(2-\lambda)((1-\lambda)^2-1)=0
+\ee
+The three roots are $\lambda_1=0, \lambda_{2,3}=2$, i.e. the second and third eigenvalue twofold degenerate. The corresponding principal directions
+$\bs{n}_1,\bs{n}_2,\bs{n}_3$ can be found by solving the following equations:
+\be
+(\bs{T}-\lambda \bs{I})\bs{n}=0.
+\ee
+We obtain:
+\begin{align}
+[\bs{n}_1]&=\frac{1}{\sqrt{2}}\left[ \begin{array}{l} 1 \\ -1 \\0 \end{array} \right] && \textit{eigenvector to the eigenvalue $\lambda_1 = 0$.}
+\end{align}
+The eigenspace corresponding to the degenerate eigenvalue $\lambda_{2,3} = 2$ is two-dimensional and can be spanned by the vectors
+\begin{align}
+[\bs{n}_2]&= \left[ \begin{array}{l} 0 \\ 0 \\ 1 \end{array} \right], \quad [\bs{n}_3]=\frac{1}{\sqrt{2}} \left[ \begin{array}{l} 1 \\
+1 \\ 0 \end{array} \right] && \textit{to the eigenvalue $\lambda_{2,3}$.}
+\end{align}
+This is an arbitrary choice. Keep in mind that any linear combination of the vectors $\bs n_2, \bs n_3$ is also an eigenvector of $\bs T$ to the eigenvalue 2.
+\item The largest and smallest principal value correspond to the maximum and minimum of the diagonal entries of the tensor in any coordinate system (see
+section 2.24 of Lai et al.). In this problem these are $2$ and $0$, respectively.
+\ei 
+
+\item Let $r^2 = x_k x_k$. Find $\frac{\pa r}{\pa x_j}$ and $\frac{\pa^2 r}{\pa x_i \pa x_j}$.
+
+\underline{Solution:}
+
+We call
+\begin{align}
+s(\bs x) &= x_k x_k, \\
+r(s(\bs x)) &= \sqrt{x_k x_k} = \sqrt{s(\bs x)}.
+\end{align}
+Using the chain rule,
+\begin{align}
+\frac{\pa r(s(\bs x))}{\pa x_j} &= \frac{\pa r}{\pa s} \frac{\pa s}{\pa x_j}, \\
+\frac{\pa r}{\pa s} &= \frac{1}{2\sqrt{s}}, \\
+\frac{\pa s}{\pa x_j} &= \delta_{jk} x_k + x_k \delta_{jk} = 2x_j.
+\end{align}
+Thus
+\be
+\frac{\pa r(s(\bs x))}{\pa x_j} = \frac{\pa r}{\pa s} \frac{\pa s}{\pa x_j} = \frac{x_j}{\sqrt{x_k x_k}}.
+\ee
+
+\begin{align}
+\frac{\pa^2 r}{\pa x_i \pa x_j} &= \frac{\pa }{\pa x_i}\left(\frac{\pa r}{\pa x_j}\right) && \\
+&= \frac{\pa x_j}{\pa x_i} \frac{1}{\sqrt{x_k x_k}} + x_j \frac{\pa}{\pa x_i} \left(\frac{1}{\sqrt{x_k x_k}}\right) &&\textit{product rule} \\
+&= \frac{\delta_{ij}}{\sqrt{x_k x_k}} + x_j \left(-\frac{1}{2}\right) \left(x_k x_k\right)^{-3/2} 2x_i &&\textit{chain rule in 2. term} \\
+&= \frac{\delta_{ij}}{\sqrt{x_k x_k}} - \frac{x_i x_j}{\left(x_k x_k\right)^{3/2}}.
+\end{align}
+
+\item  Let $\bs{D}$ be a constant tensor whose components do not depend upon
+the coordinates. Show that:
+\be
+\nabla (\bs{D} \bs{x})=\bs{D}.
+\ee
+
+\underline{Solution:} \\
+Let  $\bs{v}=\bs{D} \bs{x}$. Since $\bs{v}$ is a vector, its gradient will be a tensor. We use indicial notation:
+\be
+\begin{array}{ll}
+(\nabla \bs{v})_{ij}& =\frac{\pa v_i}{\pa x_j}=\frac{\pa  }{\pa x_j}(D_{ik}x_k) \\
+& = \frac{\pa D_{ik}}{\pa x_j} x_k +D_{ik} \frac{\pa  x_k}{\pa x_j} \\
+& = 0 x_k +D_{ik} \delta_{kj}=D_{ij}
+\end{array}
+\ee
+
+\item  Consider the scalar field $\phi=x_1^2+3x_1x_2+2x_3$
+\bi
+\item  Find the unit vector normal to the surface of constant $\phi$ at the origin and at $(1,0,1)$. 
+\item What is the maximum value of the directional derivative of $\phi$ at the origin? at (1,0,1)? 
+\item  Evaluate $d\phi/d r$ at the origin if $d\bs{r}=dr(\bs{\hat{e}}_1+\bs{\hat{e}}_3)$
+\ei
+
+\underline{Solution:} \\
+\bi
+\item The unit vector normal to the surface of constant $\phi$ at the origin and at $(1,0,1)$ is obtained from the {\em gradient } of $\phi$ at this point (see
+section 2.27 in Lai et al.). In particular:
+\be
+[\nabla \phi]=\left[ \begin{array}{c} 2x_1+3x_2 \\ 3x_1 \\2\end{array} \right]
+\ee
+which at the origin becomes $\left[ \begin{array}{l} 0 \\ 0 \\2 \end{array} \right]$ and at $(1,0,1)$,  $\left[ \begin{array}{l} 2 \\ 3 \\2 \end{array}
+\right]$. % with length $\sqrt{2^2+3^2+2^2}=\sqrt{17}$.
+Hence the unit normal vectors at these two points are:
+\be
+  \left[ \begin{array}{l} 0 \\ 0 \\1 \end{array} \right]  \textrm{  and   }   \frac{1}{\sqrt{17}}\left[ \begin{array}{l} 2 \\ 3 \\2 \end{array} \right],
+\ee
+respectively. 
+\item The maximum value of the directional derivative of $\frac{\pa \phi}{\pa dr}$ at any point is given by $|\nabla \phi|$ (see section 2.27 in Lai et al.)
+which are equal to $2$ and $\sqrt{17}$ at the origin and $(1,0,1)$, respectively.
+
+\item From the definition of the gradient:
+\be
+d \phi= \nabla \phi \cdot d\bs{r}
+\ee
+At the origin $\nabla \phi=2 \bs{\hat{e}}_3$ and for $d\bs{r}=dr(\bs{\hat{e}}_1+\bs{\hat{e}}_3)$ we obtain:
+\be
+d \phi=2 \bs{\hat{e}}_3 \cdot dr(\bs{\hat{e}}_1+\bs{\hat{e}}_3) \to  \frac{d \phi}{ dr}=2.
+\ee
+
+\ei
+
+\item If $\phi(\bs{x})$ and $\psi(\bs{x})$ are scalar functions, show that for any domain $\mathcal{B}$ with bounding surface $\pa \mathcal{B}$:
+\be
+\int( \psi \phi_{,ii}+\psi_{,i}\phi_{,i})~dV=\int_{\pa \mathcal{B}} \psi \phi_{,i} n_i dA,
+\ee
+where $n_i$ is the unit outward normal.
+
+
+\underline{Solution:} \\
+We observe that:
+\be
+\psi \phi_{,ii}+\psi_{,i}\phi_{,i}=(\psi \phi_{,i})_{,i}.
+\ee
+Hence by application of the divergence theorem:
+\be
+\int( \psi \phi_{,ii}+\psi_{,i}\phi_{,i})~dV=\int(\phi \phi_{,i})_{,i} ~dV= \int_{\pa \mathcal{B}} \psi \phi_{,i} n_i dA,
+\ee
+where $n_i$ is the unit outward normal.
+
+\item (Exam WS14) Consider a three-dimensional material body occupying a domain $\mathcal{B}$ with a  a volume $V$. Let  $x_i$ denote the position vector,  $S$ denote the boundary surface and $n_i$ the unit,  outward
+normal vector. Explain why:
+\be
+\int_S x_i n_j dS=\delta_{ij} V
+\ee
+where the first integral is over the bounding surface.
+
+\underline{Solution:}
+\begin{align}
+\int_S x_i n_j dS &= \int_S x_i \bs e_j \cdot \bs n dS = \int_V \textrm{div}(x_i \bs e_j) dV = \delta_{ij} \int_V dV = \delta_{ij} V.
+\end{align}
+
+\item (Exam WS15) Consider a material body occupying the three-dimensional unit cube $[0, 1]^3$.
+Let $x_i$ denote the position vector, $S$ denote the external boundary surface of the cube and $n_i$
+the unit, outward normal vector to $S$. For the following integral over the boundary surface
+$S$:
+\be
+\int_S x_i x_j n_j dS
+\ee
+you are asked to find:
+\begin{compactenum}[a)]
+\item Which order tensor will the result be (e.g. $0^{th}, 1^{st}, 2^{nd}$ etc)?
+\item Compute the components of this tensor
+\end{compactenum}
+
+\underline{Solution:}
+
+\begin{compactenum}[a)]
+\item $i$ is a free index and $j$ is a dummy index, hence the result will be a first order tensor/vector.
+\item
+\begin{align}
+J_i &:= \int_S x_i x_j n_j dS && \\
+&= \int_S x_i \bs x \cdot \bs n dS && \\
+&= \int_V \textrm{div}(x_i \bs x) dV && \textit{divergence theorem} \\
+&= \int_V (x_i x_j)_{,j} dV = \int_V (\delta_{ij} x_j + 3x_i)dV  && \\
+&= 4 \int_V x_i dV && \\
+&= 2.
+\end{align}
+Hence
+\be
+\bs J =
+\begin{pmatrix}
+2\\
+2\\
+2
+\end{pmatrix}.
+\ee
+\end{compactenum}
+
+
+\end{enumerate}
+
+
+
+\end{document}

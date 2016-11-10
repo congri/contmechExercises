@@ -1,0 +1,518 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+\usepackage{subfigure}
+
+\title{\underline{MSE - WS 2015/16}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung06}
+
+
+
+
+\begin{enumerate}
+
+\item Consider a  bar of length $l$ and cross-sectional area $A$ as in Figure \ref{fig:bar1} and assume that there is a single non-zero displacement component
+$u(x)$ (along the axial dimension).
+The bar is loaded with a distributed force $f(x)=x$ (with units Force per length).  At $x=0$, $u(0)=0$.
+Given the elastic modulus $E$, you are asked to:
+\bi
+\item Find the equation of equilibrium for the stress $\sigma(x)$ in the bar
+\item Distinguish between essential and non-essential boundary conditions
+\item Find the exact solution to this differential equation for the boundary conditions above
+\item Write the potential energy functional
+\item Amongst all displacement functions of the form $u(x)=a_0+a_1x+a_2x^2$ (i.e. $\forall a_0,a_1,a_2$), find the one that satisfies the essential boundary
+conditions and minimizes the potential energy.
+\item Consider a candidate solution of the form:
+\be
+u(x)=\left\{ \begin{array}{ll} a_1(1-\frac{2x}{l})+a_2 \frac{2x}{l}, & x\in [0,l/2] \\
+                               a_3(2-\frac{2x}{l})+a_4 (\frac{2x}{l}-1)& x\in [l/2,l] 
+             \end{array} \right.
+\ee
+and from the ones that satisfy the essential boundary conditions, find the minimizer of the potential energy. Compare the answer with the previous step.
+\item Solve the problem by using the principle of virtual work and by employing candidate solutions as in the last two steps and admissible virtual
+displacements of the same functional form.
+\ei
+\begin{figure}[th]
+\subfigure[Problem 1]{
+\psfrag{l}{$l$}
+\psfrag{fx}{$f(x)=x$}
+\includegraphics[width=0.45\textwidth,height=2cm]{FIGURES/bar1.eps}
+\label{fig:bar1}
+}
+\hfill
+\subfigure[Problem 2]{
+\psfrag{l}{$l$}
+\psfrag{F}{$F$}
+\psfrag{k}{$k$}
+\includegraphics[width=0.45\textwidth,height=2cm]{FIGURES/bar2.eps}
+\label{fig:bar2}
+}
+\end{figure}
+
+
+\underline{Solution:} \\
+
+\bi
+\item By considering the free-body diagram of a segment of length $\Delta x$ and taking the limit $\Delta x \to 0$, we obtain:
+\be
+A \frac{d \sigma}{dx}+f(x)=0
+\ee
+and from the stress-strain-displacement relation $\sigma(x)=E\epsilon(x)=E\frac{d u}{dx}$:
+\be
+EA \frac{d^2 u}{dx^2}+f(x)=0 
+\ee
+The general solution is:
+\be
+u(x)=\frac{1}{EA}(-x^3/6+c_1x+c_2)
+\ee
+
+\item The boundary conditions are:
+\bi
+\item $u(0)=0$ which is an {\em essential } boundary condition as it pertains to displacement specification
+\item $A \sigma(l)=EA u'(l)=0 $ which is an {\em non-essential } boundary condition as it pertains to traction specification
+\ei
+
+\item From the boundary conditions we can obtain $c_1,c_2$. The exact solution is therefore:
+\be
+u(0)=0 \to c_2=0, \textrm{ and } EA u'(l)=0 \to c_1=l^2/2
+\ee
+and:
+\be
+u(x)=\frac{1}{EA}(-x^3/6+l^2x/2)
+\ee
+
+\item The general expression for the potential energy is $\Pi=U_{\textrm{int}}-W_{\textrm{ext}}$ where $U_{\textrm{int}}$ is the {\em strain energy}  and
+$W_{\textrm{ext}}$ is the work potential of  the external forces:
+\be
+%01/02/2016: Edited by C. Grigo: added integration boundaries in 2. integral
+\begin{array}{ll}
+ \Pi&=\frac{1}{2} \int_0^l \sigma(x) \epsilon(x) A~dx-\int_0^l f(x) u(x) ~dx \\
+ &=\frac{1}{2} EA \int_0^l (\frac{du}{dx})^2 ~dx-\int_0^l x u(x) ~dx \\
+\end{array}
+\ee
+
+
+\item If $u(x)=a_0+a_1x+a_2x^2$ is to satisfy $u(0)=0$, then $a_0=0$. Hence the potential energy for functions of the form $u(x)=a_1x+a_2x^2$ becomes:
+\be
+\begin{array}{ll}
+ \Pi &=\frac{1}{2} EA \int_0^l (a_1+2a_2x)^2 ~dx-\int_0^{l} x (a_1x+a_2x^2) ~dx \\
+&= \frac{1}{2} EA (a_1^2l+2a_1a_2 l^2+4a_2^2 l^3/3)-a_1 l^3/3-a_2 l^4/4
+
+\end{array}
+\ee
+This is a function of $a_1,a_2$. Hence minimizing $\Pi$ involves:
+\be
+\begin{array}{l}
+ \frac{\pa \Pi}{\pa a_1}=0 \to \frac{1}{2} EA(2a_1l +2a_2l^2)-l^3/3=0 \\
+  \frac{\pa \Pi}{\pa a_2}=0 \to \frac{1}{2} EA(2a_1l^2 +8a_2l^3/3)-l^4/4=0 
+\end{array}
+\label{eq:pe1}
+\ee
+the solution to the system above is $a_1=\frac{7l^2}{12EA}$, $a_2=-\frac{l}{4EA}$ and:
+\be
+u(x)=\frac{1}{EA}(\frac{7l^2}{12}x-\frac{l}{4}x^2)
+\ee
+
+The Hessian i.e. $\left[ \begin{array}{ll} \frac{\pa^2 \Pi}{\pa a_1^2} & \frac{\pa^2 \Pi}{\pa a_1a_2} \\ \frac{\pa^2 \Pi}{\pa a_1a_2} & \frac{\pa^2 \Pi}{\pa a_2^2} \end{array} \right]=EA \left[ \begin{array}{ll}  l  & l^2 \\ l^2 &  8l^3/3 \end{array} \right]$ is constant and positive definite. Hence the solution found is a global minimizer of the potential energy.
+
+
+\item For the piecewise-linear candidate solution of the form:
+\be
+u(x)=\left\{ \begin{array}{ll} a_1(1-\frac{2x}{l})+a_2 \frac{2x}{l}, & x\in [0,l/2] \\
+                               a_3(2-\frac{2x}{l})+a_4 (\frac{2x}{l}-1)& x\in [l/2,l] 
+             \end{array} \right.
+\ee
+we must have $a_1=0$ in order for $u(0)=0$. Furthermore in order to ensure continuity at $x=l/2$, $a_2=a_3$. Hence we consider functions:
+\be
+u(x)=\left\{ \begin{array}{ll} a_2 \frac{2x}{l}, & x\in [0,l/2] \\
+                               a_2(2-\frac{2x}{l})+a_4 (\frac{2x}{l}-1)& x\in [l/2,l] 
+             \end{array} \right.
+\ee
+             Substituting in the potential energy function, we get:
+\be
+\begin{array}{ll}
+ \Pi &=\frac{1}{2} EA (\int_0^{l/2} (2a_2/l)^2 ~dx+\frac{1}{2} EA\int_{l/2}^l (-2a_2/l+2a_4/l)^2 ~dx \\
+ &-\int_0^{l/2} x a_2 \frac{2x}{l} ~dx -\int_{l/2}^l x (a_2(2-\frac{2x}{l})+a_4 (\frac{2x}{l}-1) ) ~dx \\
+&= \frac{1}{2} EA (2a_2^2/l+2\frac{(a_2-a_4)^2}{l})-\frac{a_2l^2}{12}-\frac{1}{24} l^2(4a_2+5a_4)
+\end{array}
+ \ee            
+ This is a function of $a_2,a_4$. Hence minimizing $\Pi$ involves:
+\be
+\begin{array}{l}
+ \frac{\pa \Pi}{\pa a_2}=0 \to \frac{1}{2} EA(4a_2/l +4(a_2-a_4)/l)-l^2/12-l^2/6=0 \\
+  \frac{\pa \Pi}{\pa a_4}=0 \to \frac{1}{2} EA(4(a_4-a_2)/l)- \frac{5l^2}{24} =0 \\
+\end{array}
+\label{eq:pe2}
+\ee
+the solution to the system above is $a_2=\frac{11 l^3}{48EA}$, $a_4=\frac{l^3}{3EA}$.
+
+It can also be verified that the Hessian i.e. $\left[ \begin{array}{ll} \frac{\pa^2 \Pi}{\pa a_1^2} & \frac{\pa^2 \Pi}{\pa a_1a_2} \\ \frac{\pa^2 \Pi}{\pa a_1a_2} & \frac{\pa^2 \Pi}{\pa a_2^2} \end{array} \right]$ is constant and positive definite. Hence the solution found is a global minimizer of the potential energy.
+Figure \ref{fig:sol} compares the exact solution with the approximate ones obtained by employing the principle of minimum potential energy.
+\vspace{.4cm}
+\begin{figure}[!h]
+\centering
+\psfrag{x}{$x$}
+\psfrag{u}{$u(x)$}
+\includegraphics[height=4cm,width=.6\textwidth]{FIGURES/potential.eps}
+\label{fig:sol}
+\caption{Comparison of potential energy solutions for problem 1}
+\end{figure}
+ 
+ 
+ %
+ \item Admissible virtual displacements $\delta u$ should be zero wherever essential boundary conditions are prescribed.
+ In the first case, if $\delta u(x)=b_0+b_1x+b_2x^2$ then we must have $b_0=0$ i.e. $\delta u(x)=b_1x+b_2x^2$. The corresponding virtual strain is $\delta \epsilon(x)=\frac{d \delta u(x)}{dx}=b_1+2b_2x$. For candidate solutions of the form $u(x)=a_1x+a_2x^2$, the principle of virtual work becomes:
+ \be
+ \delta W_{\textrm{int}}=\delta W_{\textrm{ext}} \to \int_{0}^l \sigma(x) \delta \epsilon (x) ~dV=\int_0^l f(x) \delta u(x) ~dx
+ \ee
+ and:
+ \be
+ EA \int_{0}^l \frac{d u(x)}{dx} \frac{d \delta u(x)}{dx} ~dx =\int_0^l x ~\delta u(x) ~dx
+ \label{eq:pvw}
+ \ee
+ This should hold for every virtual displacement $\delta u$. Since these are parametrized by $b_1,b_2$, it should hold for all $b_1,b_2$. In particular:
+ \be
+ \begin{array}{l}
+ EA \int_{0}^l (a_1+2a_2x)(b_1+2b_2x) ~dx =\int_0^l x (b_1x+b_2x^2)~dx, \quad \forall b_1,b_2 \\
+  EA(a_1b_1 l+a_1b_2 l^2+a_2b_1 l^2+\frac{4}{3} a_2b_2 l^3)=b_1\frac{l^3}{3}+b+2\frac{l^4}{4}, \quad \forall b_1,b_2 \\
+  b_1 \left(EA l a_1+EA a_2 l^2-\frac{l^3}{3} \right)  +b_2 \left(EAa_1l^2+EA \frac{4}{3} a_2 l^3-\frac{l^4}{4} \right), \quad \forall b_1,b_2 \\
+  \end{array}
+ \ee
+ If this is to hold $\forall b_1,b_2$, then:
+ 
+\be
+\begin{array}{l}
+ EAa_1 l+EA a_2 l^2-\frac{l^3}{3}=0 \\
+ EAa_1l^2+EA \frac{4}{3} a_2 l^3-\frac{l^4}{4}=0
+\end{array}
+\ee
+We observe that these are the same equations for $a_1,a_2$ that we obtained with the principle of minimum potential energy (\refeq{eq:pe1}).
+Hence the  solution to the system above is again  $a_1=\frac{7l^2}{12EA}$, $a_2=-\frac{l}{4EA}$ and:
+\be
+u(x)=\frac{1}{EA}(\frac{7l^2}{12}x-\frac{l}{4}x^2)
+\ee
+
+
+\item For piecewise linear candidate solutions of the form:
+\be
+u(x)=\left\{ \begin{array}{ll} a_2 \frac{2x}{l}, & x\in [0,l/2] \\
+                               a_2(2-\frac{2x}{l})+a_4 (\frac{2x}{l}-1)& x\in [l/2,l] 
+             \end{array} \right.
+\ee
+we use virtual displacements $\delta u(x)$ of the form:
+\be
+\delta u(x)=\left\{ \begin{array}{ll} b_2 \frac{2x}{l}, & x\in [0,l/2] \\
+                               b_2(2-\frac{2x}{l})+b_4 (\frac{2x}{l}-1)& x\in [l/2,l] 
+             \end{array} \right.
+\ee
+which are admissible i.e. $\delta u(0)=0$ and continuous.
+By substituting in the principle of virtual work (\refeq{eq:pvw}) we arrive to 2 equations for $a_2,a_4$ which are identical to \refeq{eq:pe2} and therefore lead to the same approximate solution as the principle of minimum potential energy.
+\ei
+
+
+\item Consider a  bar of length $l$ and cross-sectional area $A$ as in Figure \ref{fig:bar2} and assume that there is a single non-zero displacement component $u(x)$ (along the axial dimension).
+The bar is loaded with a distributed force $F$ at $x=0$ and is connected with a linear spring, with spring constant $k$, at $x=l$. The other end of the  spring is fixed.
+Given the elastic modulus $E$, you are asked to:
+\bi
+\item Find the equation of equilibrium for the stress $\sigma(x)$ in the bar
+\item Find the exact solution to this differential equation for the boundary conditions above
+\item Write the potential energy functional
+\item Amongst all displacement functions of the form $u(x)=a_0+a_1x$ (i.e. $\forall a_0,a_1$), find the one that  minimizes the potential energy.
+\item Solve the problem by using the principle of virtual work and by employing candidate solutions as in the last  step.
+\ei
+
+\underline{Solution:} \\
+\bi
+\item By considering the free-body diagram of a segment of length $\Delta x$ and taking the limit $\Delta x \to 0$, we obtain:
+\be
+A \frac{d \sigma}{dx}=0
+\ee
+and from the stress-strain-displacement relation $\sigma(x)=E\epsilon(x)=E\frac{d u}{dx}$:
+\be
+EA \frac{d^2 u}{dx^2}=0 
+\ee
+The general solution is:
+\be
+u(x)=c_1x+c_2
+\ee
+
+\item The boundary conditions are:
+\bi
+\item at $x=0$: $A\sigma(0)+F=0 \to EAu'(0)=-F$ 
+\item at $x=l$ a spring force $F_s$ of magnitude $ku(l)$ develops and $A \sigma(l)+F_s=0 \to EA u'(l)+ku(l)=0 $
+\ei
+
+\item From the boundary conditions we can obtain $c_1=-\frac{F}{EA}$ and $c_2=F(\frac{1}{k}+\frac{l}{EA})$. The exact solution is therefore:
+\be
+u(x)=-\frac{F}{EA}x+F(\frac{1}{k}+\frac{l}{EA})
+\ee
+
+
+\item The general expression for the potential energy is $\Pi=U_{\textrm{int}}-W_{\textrm{ext}}$ where $U_{\textrm{int}}$ is the {\em  strain energy}  and
+$W_{\textrm{ext}}$ is the work potential of the external forces. We can consider the spring as part of the system (easier) in which case its contribution will
+appear in $U_{\textrm{int}}$, or we can consider the spring as external to the system in which case its contribution will appear in $W_{\textrm{ext}}$ through
+the spring force $F_s$. Both considerations should lead to the same result:
+\be
+\begin{array}{ll}
+ \Pi&=\frac{1}{2} \int_0^l \sigma(x) \epsilon(x) A~dx+\frac{1}{2} ku^2(l)-F u(0) \\
+ &=\frac{1}{2} EA \int_0^l (\frac{du}{dx})^2 ~dx+\frac{1}{2} ku^2(l)-F u(0)\\
+\end{array}
+\ee
+
+
+\item For $u(x)=a_0+a_1x$, the potential energy becomes:
+\be
+\begin{array}{ll}
+ \Pi &=\frac{1}{2} EA \int_0^l (\frac{du}{dx})^2 ~dx+\frac{1}{2} ku^2(l)-F u(0)\\
+ &= \frac{1}{2} EA \int_0^l (a_1)^2 ~dx+\frac{1}{2} k(a_0+a_1l)^2-F a_0\\
+ &= \frac{1}{2} EA  a_1^2 l+\frac{1}{2} k(a_0+a_1l)^2-F a_0\\
+\end{array}
+\ee
+
+This is a function of $a_0,a_1$. Hence minimizing $\Pi$ involves:
+\be
+\begin{array}{l}
+ \frac{\pa \Pi}{\pa a_0}=0 \to  k(a_0+a_1l)-F=0 \\
+  \frac{\pa \Pi}{\pa a_2}=0 \to  EA a_1 l + k(a_0+a_1l)l=0
+\end{array}
+\ee
+The solution to the system above is $a_1=-\frac{F}{EA}$ and $a_0=F(\frac{1}{k}+\frac{l}{EA})$ which coincides with the exact solution.
+
+\item With regards to the principle of virtual work $\delta W_{\textrm{int}}=\delta W_{\textrm{ext}}$ there are again two options. We can consider the spring as part of
+the system in which case its contribution will appear in $\delta W_{\textrm{int}}$ through the work done by the internal spring force. Alternatively, we can
+consider the spring as external to the system (easier) in which case its contribution will appear in $\delta W_{\textrm{ext}}$ through the work done by $F_s$ when a
+virtual displacement $\delta u(l)$ is imposed.
+For virtual displacements $\delta u(x)=b_0+b_1x$ we obtain:
+\be
+\begin{array}{l}
+\delta W_{\textrm{int}}=\delta W_{\textrm{ext}}  \\
+\to EA \int_{0}^l \frac{d u(x)}{dx} \frac{d \delta u(x)}{dx} ~dx=-F_s \delta u(l)+F\delta u(0) \\
+\to EA \int_{0}^l a_1 b_1=-k(a_0+a_1l)(b_0+b_1l)+Fb_0 \\
+\to EA a_1 b_1 l=-k(a_0b_0+a_0b_1l+a_1b+0l+a_1b_1l^2)+Fb_0 \\
+\to b_0(ka_0+ka_1l-F)+b_1(EAa_1l+ka_0l+a_1l^2)=0
+\end{array}
+\ee
+This should hold for all virtual displacements, i.e. $\forall b_0,b_1$ which leads to two equations:
+\be
+\begin{array}{l}
+  k(a_0+a_1l)-F=0 \\
+    EA a_1 l + k(a_0+a_1l)l=0
+\end{array}
+\ee
+which are the same as in the principle of minimum potential energy. Hence we obtain again the exact solution.
+
+\ei
+
+
+
+
+
+
+
+
+\item Consider the beam as in Figure \ref{fig:cantips} with known material properties $E,\nu$,  load $P$, and which is assumed to be under plane stress conditions.
+Furthermore we assume that $\sigma_{22}=0$.
+The following boundary conditions are assumed at $(l,0)$: $u_1=0$, $u_2=0$ and $\frac{\pa u_2}{\pa x_1}=0$. 
+The non-zero displacement fields $u_1, u_2$ are assumed to be of the form:
+\be
+u_1(x_1,x_2)=a_1x_1^2x_2 +a_2 x_2^3+a_3x_2+a_4, \quad u_2(x_1,x_2)=\frac{\nu P}{2EI} x_1x_2^2+\frac{P}{6EI} x_1^3+a_5x_1+a_6
+\ee
+where $a_1, a_2, a_3, a_4, a_5, a_6$ are real-valued parameters.
+\bi
+\item Write the expression for the potential energy of this beam
+\item Amongst all displacement functions $u_1,u_2$ above that satisfy the three boundary conditions at $(l,0)$, find the one that minimizes the potential energy and compare with the result in Problem 4 of \"Ubung05.
+\ei
+
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\psfrag{h}{$h$}
+\psfrag{l}{$l$}
+\psfrag{1}{$1$}
+\psfrag{p}{$P$}
+\includegraphics[height=3cm]{FIGURES/psbeam2.eps}
+\label{fig:cantips}
+\caption{Problem 3}
+\end{figure}
+
+\underline{Solution:} \\
+\bi
+\item By imposing the boundary conditions we obtain $a_4=0, a_5=-\frac{Pl^2}{2EI}$ and $a_6=\frac{Pl^3}{3EI}$. Hence:
+\be
+u_1(x_1,x_2)=a_1x_1^2x_2 +a_2 x_2^3+a_3x_2, \quad u_2(x_1,x_2)=\frac{\nu P}{2EI} x_1x_2^2+\frac{P}{6EI} x_1^3-\frac{Pl^2}{2EI}x_1+\frac{Pl^3}{3EI}
+\ee
+From the strain-displacement equations we obtain:
+
+\be
+\begin{array}{l}
+ \epsilon_{11}=u_{1,1}=2a_1x_1x_2 \\
+\epsilon_{22}=u_{2,2}=\frac{\nu P}{EI} x_1x_2 \\
+\epsilon_{12}=\frac{1}{2}(a_1x_1^2+3a_2x_2^2+a_3+\frac{\nu P}{2EI}  x_2^2+\frac{P}{2EI} x_1^2-\frac{Pl^2}{2EI} )
+\end{array}
+\ee
+We also note that under plane stress $\sigma_{33}=0 \to \epsilon_{33}=-\frac{\lambda}{\lambda+2\mu}(\epsilon_{11}+\epsilon_{22})$.
+The corresponding stresses, can be found from the stress-strain relationship:
+\be
+\begin{array}{l}
+ \sigma_{11}=(\lambda+2\mu)\epsilon_{11}+\lambda(\epsilon_{22}+\epsilon_{33})\\
+  \sigma_{22}=(\lambda+2\mu)\epsilon_{22}+\lambda(\epsilon_{11}+\epsilon_{33})\\
+\sigma_{12}=2\mu \epsilon_{12}=\mu (a_1x_1^2+3a_2x_2^2+a_3+\frac{\nu P}{2EI}  x_2^2+\frac{P}{2EI} x_1^2-\frac{Pl^2}{2EI} )
+\end{array}
+\ee
+Given that $\sigma_{22}=0$ we obtain:
+\be
+\begin{array}{ll}
+ 0 &= (\lambda+2\mu)\epsilon_{22}+\lambda(\epsilon_{11}+\epsilon_{33}) \\ 
+ 0 &= (\lambda+2\mu)\epsilon_{22}+\lambda\epsilon_{11}-\frac{\lambda^2}{\lambda+2\mu}(\epsilon_{11}+\epsilon_{22}) \\
+ 0 & = 4\mu \frac{\lambda+\mu}{\lambda+2\mu} \epsilon_{22}+\frac{2\mu \lambda}{\lambda+2\mu} \epsilon_{11} \\
+ 0 & = 4\mu \frac{\lambda+\mu}{\lambda+2\mu} \frac{\nu P}{EI} x_1x_2 +\frac{2\mu \lambda}{\lambda+2\mu} 2a_1x_1x_2  \\
+ 0 & = \frac{\lambda+\mu}{\lambda+2\mu} \frac{\nu P}{EI} +\frac{ \lambda}{\lambda+2\mu} a_1 \\
+ a_1 & = - \frac{\lambda+\mu}{\lambda }\frac{\nu P}{EI}
+%  \to 0 & =(\lambda+2\mu)\frac{\nu P}{EI} x_1x_2+\lambda(2a_1x_1x_2 ) \\
+%  \to a_1 &=-\frac{\lambda+2\mu}{2\lambda} \frac{\nu P}{EI}
+\end{array}
+\label{eq31}
+\ee
+and since $\nu=\frac{\lambda}{2(\lambda+\mu)}$ we have that $a_1=-\frac{ P}{2EI}$.
+We also note that under plane stress conditions $\sigma_{13}=\sigma_{23}=\sigma_{33}=0$.
+The general expression for the potential energy involves the internal energy $U_{\textrm{int}}$ which is given by:
+\be
+U_{\textrm{int}}=\frac{1}{2} \int \sigma_{ij}\epsilon_{ij}~dV
+\ee
+In the plane stress conditions considered and accounting for the zero stress components,  this becomes:
+\be
+U_{\textrm{int}}=\frac{1}{2} \int (\sigma_{11}\epsilon_{11}+\sigma_{22}\epsilon_{22}+2\sigma_{12}\epsilon_{12})~dV
+\ee
+As for the $W_{\textrm{ext}}$  this is:
+\be
+W_{\textrm{ext}}= \int_{-h}^h 1~ \frac{P}{2h} u_2(0,x_2)~dx_2= \frac{ P^2 l^3}{3EI}
+\ee
+Hence the potential energy is:
+\be
+\begin{array}{ll}
+ \Pi &= U_{\textrm{int}}-W_{\textrm{ext}} \\
+ &= \frac{1}{2} \int (\sigma_{11}\epsilon_{11}+\sigma_{22}\epsilon_{22}+2\sigma_{12}\epsilon_{12})~dV-\frac{P^2 l^3}{3EI} \\
+ &=\frac{1}{2} \int_0^l \int_{-h}^h  (\sigma_{11}\epsilon_{11}+\sigma_{22}\epsilon_{22}+2\sigma_{12}\epsilon_{12})~dx_1 dx_2-\frac{P^2 l^3}{3EI} \\
+ &=\frac{1}{2} \int_0^l \int_{-h}^h  (\sigma_{11}\epsilon_{11}+2\sigma_{12}\epsilon_{12})~dx_1 dx_2-\frac{P^2 l^3}{3EI} \\
+%  & = \frac{1}{2} \int_0^l \int_{-h}^h ( (\lambda+2\mu)\epsilon_{11}^2+\lambda\epsilon_{22} \epsilon_{11}+4\mu \epsilon_{12}^2) ~dx_1 dx_2-\frac{2h P^2 l^3}{3EI} \\
+ \end{array}
+\ee
+
+By substituting the expressions above, the potential energy will eventually become a function of $a_2,a_3$. Minimization of $\Pi$ involves setting $\frac{\pa \Pi}{\pa a_i}=0, i=2,3$ which leads to a system of 2 equations with 2 unknowns.
+The solution found should be identical to the exact solution found in Problem 4 of \"Ubung05.
+\ei
+
+
+\item(\textbf{Exam 2014}) 
+Consider the  material body occupying the rectangle with area $A=(2L) \cdot (2c) =4 Lc$ shown in Figure  3 %\ref{fig:pvw}
+which is under plane stress in the $x_1-x_2$ plane. Assume it has a unit thickness (in the $x_3$ direction) and is subjected to the equal and opposite normal tractions $q(x_2)=q_0 x_2^2$ (Force per unit area) shown.
+\bi
+\item Using the Principle of Virtual Work and a virtual displacement field $\delta u_1= x_1$ , $\delta u_2=\delta u_3=0$, find  the average value of $\sigma_{11}$ over the rectangle i.e. :
+\be
+\frac{1}{A} \int \sigma_{11}(x_1,x_2) dA 
+\ee
+\ei
+\begin{figure}[!h]
+\psfrag{q}{$q(x_2)$}
+\psfrag{L}{$L$}
+\psfrag{c}{$c$}
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\centering
+  \includegraphics[height=5cm]{FIGURES/pvw.eps}
+ \caption{Problem Configuration}
+ \label{fig:pvw}
+\end{figure}
+
+
+
+
+\underline{Solution:} \\
+
+One must first find the virtual strains $\delta \epsilon_{ij} =\frac{1}{2} (\delta u_{i,j}+\delta u_{j,i})$ corresponding to the virtual displacement field considered:
+\be
+\begin{array}{l}
+ \delta \epsilon_{11} = \frac{ \pa \delta u_1}{\pa x_1}=1 \\
+ \delta \epsilon_{22} =\delta \epsilon_{33} =\delta \epsilon_{12} =\delta \epsilon_{13} =\delta \epsilon_{23} =0
+\end{array}
+\ee
+The internal virtual work $\delta W_{\textrm{int}}$ is then given by:
+\be
+\begin{array}{ll}
+ \delta W_{\textrm{int}} & = \int \sigma_{ij} \delta \epsilon_{ij}~dV \\
+  & = 1\int \sigma_{11} \delta \epsilon_{11} dA \qquad \textrm{(unit~thickness)} \\
+  & = \int \sigma_{11} ~dA \\
+\end{array}
+\ee
+The external virtual work $\delta W_{\textrm{ext}}$ is then given by:
+\be
+\begin{array}{ll}
+ \delta W_{\textrm{ext}} & = \underbrace{\int q(x_2) \delta u_1 (x_1=L) dA}_{\textrm{right~boundary}} - \underbrace{\int q(x_2) \delta u_1 (x_1=-L)
+ dA}_{\textrm{left~boundary}} \\
+ &= L\int_{-c}^c q(x_2) dx_2 + L\int_{-c}^c q(x_2) dx_2 \qquad \textrm{(unit~thickness)} \\ 
+ & = 2 L \int_{ -c}^{c} q(x_2) ~dx_2 \\
+ & = 2 L \int_{ -c}^{c} q_0 x_2^2 ~dx_2 \\ 
+ & = 2L q_0 2 \frac{c^3}{3} =4Lq_0 \frac{c^3}{3}
+ \end{array}
+ \ee
+ From the equality $\delta W_{\textrm{int}}=\delta W_{\textrm{ext}}$ we have that:
+ \be
+ \int \sigma_{11} ~dA =\frac{4}{3} Lq_0 c^3 \quad \to \quad \frac{1}{A} \int \sigma_{11} ~dA =q_0 \frac{c^2}{3}.
+ \ee
+ 
+ 
+\end{enumerate}
+
+\end{document}

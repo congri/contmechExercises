@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+\usepackage{subfigure}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung06}
+
+
+\begin{enumerate}
+
+\item Consider a  bar of length $l$ and cross-sectional area $A$ as in Figure \ref{fig:bar1} and assume that there is a single non-zero displacement component $u(x)$ (along the axial dimension).
+The bar is loaded with a distributed force $f(x)=x$ (with units $Force/Length$).  At $x=0$, $u(0)=0$.
+Given the elastic modulus $E$, you are asked to:
+\bi
+\item Find the equation of equilibrium for the stress $\sigma(x)$ in the bar
+\item Distinguish between essential and non-essential boundary conditions
+\item Find the exact solution to this differential equation for the boundary conditions above
+\item Write the potential energy functional
+\item Amongst all displacement functions of the form $u(x)=a_0+a_1x+a_2x^2$ (i.e. $\forall a_0,a_1,a_2$), find the one that satisfies the essential boundary conditions and minimizes the potential energy.
+\item Consider a candidate solution of the form:
+\be
+u(x)=\left\{ \begin{array}{ll} a_1(1-\frac{2x}{l})+a_2 \frac{2x}{l}, & x\in [0,l/2] \\
+                               a_3(2-\frac{2x}{l})+a_4 (\frac{2x}{l}-1)& x\in [l/2,l] 
+             \end{array} \right.
+\ee
+and from the ones that satisfy the essential boundary conditions, find the minimizer of the potential energy. Compare the answer with the previous step.
+\item Solve the problem by using the principle of virtual work and by employing candidate solutions as in the last two steps and admissible virtual displacements of the same functional form. 
+\ei
+\begin{figure}[th]
+\subfigure[Problem 1]{
+\psfrag{l}{$l$}
+\psfrag{fx}{$f(x)=x$}
+\includegraphics[width=0.45\textwidth,height=2cm]{FIGURES/bar1.eps}
+\label{fig:bar1}
+}
+\hfill
+\subfigure[Problem 2]{
+\psfrag{l}{$l$}
+\psfrag{F}{$F$}
+\psfrag{k}{$k$}
+\includegraphics[width=0.45\textwidth,height=2cm]{FIGURES/bar2.eps}
+\label{fig:bar2}
+}
+\end{figure}
+
+\item Consider a  bar of length $l$ and cross-sectional area $A$ as in Figure \ref{fig:bar2} and assume that there is a single non-zero displacement component $u(x)$ (along the axial dimension).
+The bar is loaded with a distributed force $F$ at $x=0$ and is connected with a linear spring, with spring constant $k$, at $x=l$. The other end of the  spring is fixed.
+Given the elastic modulus $E$, you are asked to:
+\bi
+\item Find the equation of equilibrium for the stress $\sigma(x)$ in the bar
+\item Find the exact solution to this differential equation for the boundary conditions above
+\item Write the potential energy functional
+\item Amongst all displacement functions of the form $u(x)=a_0+a_1x$ (i.e. $\forall a_0,a_1$), find the one that  minimizes the potential energy.
+\item Solve the problem by using the principle of virtual work and by employing candidate solutions as in the last  step.
+\ei
+
+
+
+\item Consider the beam as in Figure \ref{fig:cantips} with known material properties $E,\nu$,  load $P$, and which is assumed to be under plane stress conditions.
+Furthermore we assume that $\sigma_{22}=0$.
+The following boundary conditions are assumed at $(l,0)$: $u_1=0$, $u_2=0$ and $\frac{\pa u_2}{\pa x_1}=0$. 
+The non-zero displacement fields $u_1, u_2$ are assumed to be of the form:
+\be
+u_1(x_1,x_2)=a_1x_1^2x_2 +a_2 x_2^3+a_3x_2+a_4, \quad u_2(x_1,x_2)=\frac{\nu P}{2EI} x_1x_2^2+\frac{P}{6EI} x_1^3+a_5x_1+a_6
+\ee
+where $a_1, a_2, a_3, a_4, a_5, a_6$ are real-valued parameters.
+\bi
+\item Write the expression for the potential energy of this beam
+\item Amongst all displacement functions $u_1,u_2$ above that satisfy the three boundary conditions at $(l,0)$, find the one that minimizes the potential energy and compare with the result in Problem 4  of \"Ubung05.
+\ei
+
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\psfrag{h}{$h$}
+\psfrag{l}{$l$}
+\psfrag{1}{$1$}
+\psfrag{p}{$P$}
+\includegraphics[height=3cm]{FIGURES/psbeam2.eps}
+\label{fig:cantips}
+\caption{Problem 3}
+\end{figure}
+
+\item(\textbf{Exam 2014}) 
+Consider the  material body occupying the rectangle with area $A=(2L) \cdot (2c) =4 Lc$ shown in Figure  3 %\ref{fig:pvw}
+which is under plane stress in the $x_1-x_2$ plane. Assume it has a unit thickness (in the $x_3$ direction) and is subjected to the equal and opposite normal tractions $q(x_2)=q_0 x_2^2$ (Force per unit area) shown.
+\bi
+\item Using the Principle of Virtual Work and a virtual displacement field $\delta u_1= x_1$ , $\delta u_2=\delta u_3=0$, find  the average value of $\sigma_{11}$ over the rectangle i.e. :
+\be
+\frac{1}{A} \int \sigma_{11}(x_1,x_2) dA 
+\ee
+\ei
+\begin{figure}[!h]
+\psfrag{q}{$q(x_2)$}
+\psfrag{L}{$L$}
+\psfrag{c}{$c$}
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\centering
+  \includegraphics[height=5cm]{FIGURES/pvw.eps}
+ \caption{Problem Configuration}
+ \label{fig:pvw}
+\end{figure}
+
+
+\end{enumerate}
+
+\end{document}

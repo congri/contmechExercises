@@ -1,0 +1,560 @@
+\documentclass{article}
+\usepackage{nips07submit_e,times}
+%\documentstyle[nips07submit_09,times]{article}
+
+\title{\underline{MSE - WS 2014/15}\\
+Continuum Mechanics}
+
+
+\author{
+Instructor: P.S. Koutsourelakis  \\
+\texttt{p.s.koutsourelakis@tum.de} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
+
+\usepackage[dvips]{psfrag,graphicx}
+
+
+\linespread{1.6}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\pa}{\partial}
+\newcommand{\bs}{\boldsymbol}
+\def\RR{ \mathbb R}
+\newcommand{\refeq}[1]{Equation (\ref{#1})}
+\newcommand{\pd}[2]{\frac{\pa #1}{\pa #2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\begin{document}
+
+\makeanontitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\section*{\"Ubung04}
+
+
+\begin{enumerate}
+
+
+\item (\textbf{Exam 2013}) 
+For an isotropic linearly elastic solid under small deformations, the stress-strain relation is $\sigma_{ij}=\lambda \delta_{ij} \epsilon_{kk}+2\mu \epsilon_{ij}$ where $\lambda, \mu$ are Lam\'e's constants.
+If the  displacement field is:
+\be
+u_1= k x_3 x_2, \quad  u_2= kx_3 x_1, \quad  u_3= k (x_1x_2+x_3^2)%, \quad k=10^{-4}
+\ee
+\bi
+\item  Find the stress components.
+\item  In the absence of body forces, check whether  the state of stress corresponds to an
+equilibrium stress field.
+\ei
+
+\underline{Solution:} \\
+\bi
+\item One needs to find first the strains and then, from the constitutive relation, the stresses. from the strain-displacement relation:
+\be
+\epsilon_{ij}=\frac{1}{2}(u_{i,j}+u_{j,i})
+\ee
+we obtain:
+\be
+\begin{array}{l}
+ \epsilon_{11}=\epsilon_{22}=0 \\
+ \epsilon_{33}= 2kx_3 \\
+ \epsilon_{12}=\frac{1}{2}(kx_3+kx_3)=kx_3 \\
+  \epsilon_{13}=\frac{1}{2}(kx_2+kx_2)=kx_2\\
+   \epsilon_{23}=\frac{1}{2}(kx_1+kx_1)=kx_1 
+\end{array}
+\ee
+Hence since $\sigma_{ij}=\lambda \delta_{ij} \epsilon_{kk}+2\mu \epsilon_{ij}=0$ and $\epsilon_{kk}=2kx_3$  we have that:
+\be
+\begin{array}{l}
+ \sigma_{11}= \lambda 2kx_3+0=2\lambda kx_3  \\
+ \sigma_{22}=\lambda 2kx_3+0=2 \lambda kx_3  \\
+ \sigma_{33}=\lambda 2kx_3++2\mu 2kx_3=( \lambda +2\mu)2kx_3  \\
+\sigma_{12}=2\mu kx_3 \\
+  \sigma_{13}=2\mu kx_2\\
+   \sigma_{23}=2\mu kx_1 
+\end{array}
+\ee
+
+\item In the absence of body forces the stresses should satisfy $\sigma_{ij,j}=0$, i.e.:
+\be
+\begin{array}{l}
+i=1 \to \pd{\sigma_{11} }{x_1}+\pd{\sigma_{12} }{x_2}+\pd{\sigma_{13} }{x_3}=0 \to 0+0+0=0 \\
+i=2 \to \pd{\sigma_{21} }{x_1}+\pd{\sigma_{22} }{x_2}+\pd{\sigma_{23} }{x_3}=0 \to 0+0+0=0 \\
+i=3 \to \pd{\sigma_{31} }{x_1}+\pd{\sigma_{32} }{x_2}+\pd{\sigma_{33} }{x_3}=0 \to ( \lambda +2\mu)2k \ne 0 
+\end{array}
+\ee
+Hence the stresses calculated do not yield equilibrium.
+
+
+\ei
+
+
+\item  An isotropic elastic body with $E=  207~ GPa$, $\mu= 79.2~GPa$,  has a uniform state of stress given by:
+\be
+[\bs{\sigma}]=\left[\begin{array}{ccc} 100 & 40 & 60 \\ 40 & -200 & 0 \\ 60 & 0 & 200 \end{array} \right] ~MPa
+\ee
+\bi
+\item What are the strain components?
+\item  What is the total change of volume for a five-centimeter cube of the material?
+\ei
+
+\underline{Solution:} \\
+\bi
+\item The strain-stress relationship for isotropic elastic materials is:
+\be
+ \epsilon_{ij}\;=\;\frac{1}{E}[(1+\nu)\sigma_{ij} - \nu\delta_{ij}\sigma_{kk}]
+\ee
+The Poisson's ratio $\nu$ can be computed from $E,\mu$ as:
+\be
+\nu=\frac{E}{2\mu}-1=0.307
+\ee
+Hence:
+\be
+\begin{array}{l}
+ \epsilon_{11}=\frac{1}{E}(\sigma_{11}-\nu(\sigma_{22}+\sigma_{33}))=0.483 \times 10^{-3}\\
+  \epsilon_{11}=\frac{1}{E}(\sigma_{22}-\nu(\sigma_{11}+\sigma_{33}))=-1.41\times 10^{-3}\\
+\epsilon_{33}=\frac{1}{E}(\sigma_{33}-\nu(\sigma_{11}+\sigma_{22}))=1.11\times 10^{-3}\\
+\epsilon_{12}=\frac{1}{2 \mu}\sigma_{12}=0.253 \times 10^{-3}\\
+\epsilon_{13}=\frac{1}{2 \mu}\sigma_{13}=0.379 \times 10^{-3}\\
+\epsilon_{23}=\frac{1}{2 \mu}\sigma_{23}=0
+\end{array}
+\ee
+
+\item In the small deformations regime, at each point in the material body the undeformed infinitesimal volume $dV$ becomes $dv$ after deformation such that (see section 3.10 of Lai et al.):
+\be
+\frac{dv-dV}{dV}=\epsilon_{ii} \to dv-dV=dV ~\epsilon_{ii}
+\ee
+To find the new volume $v$  of a cube with original volume $V=5cm^3$ we have to integrate the relation above, i.e.:
+\be
+\int dv-\int dV=\int \epsilon_{ii} ~dV \to v-V=\int \epsilon_{ii} ~dV
+\ee
+since stress are constant throughout the volume, strains are also and:
+\be 
+v-V=(\epsilon_{11}+\epsilon_{22}+\epsilon_{33})V=0.183 \times 10^{-3} V=0.915 \times 10^{-3} cm^3
+\ee
+\ei
+
+
+
+%Mase 6.4
+\item  For an isotropic elastic medium, express the strain energy density function $U$ in terms of:
+\bi
+\item the components of $\epsilon_{ij}$
+\item the components of $\sigma_{ij}$
+\item the invariants of $\epsilon_{ij}$
+\ei
+
+
+\underline{Solution:} \\
+\bi
+\item We have established that the strain energy density $U$ is given by:
+\be
+U=\frac{1}{2} \sigma_{ij} \epsilon_{ij}
+\ee
+For an isotropic material:
+\be
+\sigma_{ij}= \lambda \delta_{ij} \epsilon_{kk}+ 2\mu  \epsilon_{ij}
+\ee
+Hence:
+\be
+\begin{array}{ll}
+ U&=\frac{1}{2}(\lambda \delta_{ij} \epsilon_{kk}+ 2\mu  \epsilon_{ij})\epsilon_{ij} \\
+ &=\frac{1}{2}(\lambda \delta_{ij} \epsilon_{kk} \epsilon_{ij}+2\mu  \epsilon_{ij}\epsilon_{ij}) \\
+ &=\frac{1}{2}(\lambda  \epsilon_{kk} \epsilon_{ii}+2\mu  \epsilon_{ij}\epsilon_{ij})
+\end{array}
+\ee
+\item Using the equivalent strain-stress relationship:
+\be
+ \epsilon_{ij}\;=\;\frac{1}{E}[(1+\nu)\sigma_{ij} - \nu\delta_{ij}\sigma_{kk}]
+\ee
+we obtain:
+\be
+\begin{array}{ll}
+ U&=\frac{1}{2} \sigma_{ij}(\frac{1}{E}[(1+\nu)\sigma_{ij} - \nu\delta_{ij}\sigma_{kk}]) \\
+ &=\frac{1}{2E}((1+\nu)\sigma_{ij}\sigma_{ij}-\nu\delta_{ij}\sigma_{ij}\sigma_{kk}) \\
+ &=\frac{1}{2E}((1+\nu)\sigma_{ij}\sigma_{ij}-\nu\sigma_{ii}\sigma_{kk}) 
+\end{array}
+\ee
+
+
+\item From the definition of the invariants of a tensor (see section 2.25 of Lai
+ et al.) we have that:
+ \be
+ I_1=\epsilon_{ii} \textrm{  and  } I_2=\frac{1}{2}((\epsilon_{ii})^2+
+\epsilon_{ij}\epsilon_{ij})=\frac{1}{2}(I_1^2+
+\epsilon_{ij}\epsilon_{ij})
+\ee
+Hence:
+\be
+U=\frac{1}{2}(\lambda  \epsilon_{kk} \epsilon_{ii}+2\mu  \epsilon_{ij}\epsilon_{ij})=\frac{1}{2} (\lambda I_1^2-4\mu I_2+2\mu I_1^2)=\frac{\lambda+2\mu}{2} I_1^2-2\mu I_2
+\ee
+
+
+\ei
+
+
+
+
+\item  Given the following displacement field in an isotropic linearly elastic solid:
+\be
+u_1= k x_3 x_2, \quad  u_2= kx_3 x_1, \quad  u_3= k (x_1^2-x_2^2), \quad k=10^{-4}
+\ee
+\bi
+\item  Find the stress components, and
+\item  In the absence of body forces, check whether  the state of stress corresponds to an
+equilibrium stress field?
+\ei
+\underline{Solution:} \\
+\bi
+\item The strain-displacement relationship $2\epsilon_{ij}=u_{i,j}+u_{j,i}$ leads to:
+\be
+\begin{array}{l}
+ \epsilon_{11}=u_{1,1}=0 \\
+  \epsilon_{22}=u_{2,2}=0 \\
+ \epsilon_{33}=u_{3,3}=0 \\
+  \epsilon_{12}=\frac{1}{2}(u_{1,2}+u_{2,1})=\frac{1}{2}(kx_3+kx_3)=kx_3 \\
+  \epsilon_{13}=\frac{1}{2}(u_{1,3}+u_{3,1})=\frac{1}{2}(kx_2+2kx_1) \\
+  \epsilon_{23}=\frac{1}{2}(u_{2,3}+u_{3,2})=\frac{1}{2}(kx_1-2kx_2) \\ 
+\end{array}
+\ee
+For an isotropic material:
+\be
+\sigma_{ij}= \lambda \delta_{ij} \epsilon_{kk}+ 2\mu  \epsilon_{ij}
+\ee
+Hence:
+\be
+\begin{array}{l}
+ \sigma_{11}= 0\\
+  \sigma_{22}=0 \\
+ \sigma_{33}=0 \\
+  \sigma_{12}=2\mu  \epsilon_{12}=2\mu kx_3 \\
+  \sigma_{13}=2\mu  \epsilon_{12}=\mu (kx_2+2kx_1) \\
+  \sigma_{23}=2 \mu \epsilon_{23}=\mu (kx_1-2kx_2) \\ 
+\end{array}
+\ee
+
+\item The 3 equations of equilibrium (in the absence of body forces) are $\sigma_{ij,j}=0$:
+\be
+\begin{array}{l}
+ \sigma_{11,1}+\sigma_{12,2}+\sigma_{13,3}=0+0+0=0 \\
+  \sigma_{12,1}+\sigma_{22,2}+\sigma_{23,3}=0+0+0=0 \\
+   \sigma_{13,1}+\sigma_{23,2}+\sigma_{33,3}=2\mu k-2\mu k+0=0 \\
+\end{array}
+\ee
+and all are satisfied.
+
+
+\ei
+
+
+\item  Let the stress field for a continuum be given by:
+\be
+[\bs{\sigma}]=\left[\begin{array}{ccc} x_1+x_2 & \sigma_{12}(x_1,x_2) & 0 \\  \sigma_{12}(x_1,x_2) & x_1-x_2 & 0 \\ 0 & 0 & x_2 \end{array} \right]
+\ee
+If the equilibrium equations are satisfied in the absence of body forces and if the stress vector on the plane perpendicular to  $\bs{\hat{e}}_1$ at $x_1 = 1$ is given by $\bs{t} = (1 + x_2) \bs{\hat{e}}_1 + (6 -x_2 )\bs{\hat{e}}_2$, determine $\sigma_{12}(x_1,x_2)$.
+%Answer: σ12 = x1 – x2 + 5
+
+\underline{Solution:} \\
+The 3 equations of equilibrium (in the absence of body forces)  $\sigma_{ij,j}=0$, imply:
+\be
+\begin{array}{l}
+ \sigma_{11,1}+\sigma_{12,2}+\sigma_{13,3}=1+\frac{\pa \sigma_{12}}{\pa x_2}+0=0 \\
+  \sigma_{12,1}+\sigma_{22,2}+\sigma_{23,3}=\frac{\pa \sigma_{12}}{\pa x_1}+(-1)+0=0 \\
+   \sigma_{13,1}+\sigma_{23,2}+\sigma_{33,3}=0+0+0=0 \\
+\end{array}
+\ee
+The first of these equations implies that:
+\be
+1+\frac{\pa \sigma_{12}}{\pa x_2}=0 \to \sigma_{12}=-x_2+f(x_1)
+\ee
+In combination with the second of the equilibrium equations:
+\be
+\frac{\pa \sigma_{12}}{\pa x_1}-1=0 \to f'(x_1)=1 \to f(x_1)=x_1+c
+\ee
+Hence:
+\be
+\sigma_{12}=x_1-x_2+c
+\ee
+From the given traction we have that:
+\be
+\begin{array}{l}
+[\bs{\sigma}]|_{x_1=1} [\bs{n}]=[\bs{t}] \to \left[\begin{array}{ccc} 1+x_2 & \sigma_{12}(1,x_2) & 0 \\  \sigma_{12}(1,x_2) & 1-x_2 & 0 \\ 0 & 0 & x_2 \end{array} \right] \left[\begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right]=  \left[\begin{array}{c} 1+x_2\\ 6-x_2 \\ 0 \end{array} \right]  \\
+\to \left[\begin{array}{c} 1+x_2 \\ \sigma_{12}(1,x_2) \\ 0 \end{array} \right]=  \left[\begin{array}{c} 1+x_2 \\ 6-x_2 \\ 0 \end{array} \right] \\
+\end{array}
+\ee
+which implies that $1-x_2+c=6-x_2 \to c=5$. Hence:
+\be
+\sigma_{12}=x_1-x_2+5
+\ee
+
+\item Consider the following stress distribution for a cylindrical bar with lateral surface defined by $x_2^2 + x^2_3 = 4$:
+\be
+[\bs{\sigma}]=\left[\begin{array}{ccc} 0 & -ax_3 & ax_2 \\   & 0 & 0 \\ sym. &  & 0 \end{array} \right]
+\ee
+\bi
+\item What is the distribution of the stress vector on the surfaces defined by (i) the lateral
+surface $x_2^2 + x^2_3 = 4$, (ii) the end face $x_1 = 0$, and (iii) the end face $x_1 = l$?
+\item Find the total resultant force and moment on the end face $x_1 = l$.
+\ei
+\underline{Solution:} \\
+See \"Ubung of December $23^{\textrm{rd}}$ 2015, exercise 7.
+
+\item  Let $\bs t_m$ and $\bs t_n$ be stress vectors on planes defined by the unit vector $\bs m$ and $\bs n$, respectively,
+and pass through the point $P$. Show that if $\bs k$ is a unit vector that determines a plane that
+contains $\bs t_m$ and $\bs t_n$, then $\bs t_k$ is perpendicular to $\bs m$ and $\bs n$.
+
+\underline{Solution:} \\ %from C. Grigo, 21/01/16
+$\bs t_m$ and $\bs t_n$ are stress vectors on the planes defined by the vectors $\bs m$ and $\bs n$ acting on the common point $P$, so
+\be
+\bs t_m = \bs \sigma_P \bs m, \qquad \bs t_n = \bs \sigma_P \bs n,
+\ee
+where $\bs \sigma_P$ is the stress tensor at $P$.
+
+$\bs t_m, \bs t_n$ lie in a plane defined by vector $\bs k$, so
+\be
+\bs t_m \perp \bs k, \qquad \bs t_n \perp \bs k,
+\ee
+i.e.
+\be
+\bs t_m \cdot \bs k = \bs t_n \cdot \bs k = 0.
+\ee
+In point $P$, we have $\bs t_k = \bs \sigma_P \bs k$. 
+
+We have to check that $\bs t_k \cdot \bs m = \bs t_K \cdot \bs n = 0$:
+\begin{align}
+\bs t_k \cdot \bs m &= \bs t_k^T \bs m = \bs k^T \bs \sigma_P^T \bs m = \bs k^T \bs \sigma_P \bs m = \bs k \cdot \bs t_m = 0 \qquad \surd, \\
+\bs t_k \cdot \bs n &= \bs t_k^T \bs n = \bs k^T \bs \sigma_P^T \bs n = \bs k^T \bs \sigma_P \bs n = \bs k \cdot \bs t_n = 0 \qquad \surd.
+\end{align}
+
+
+\item  A composite bar, formed by welding two slender, cylindrical bars of equal length and equal cross-sectional area, is
+loaded by an axial load P as shown in Figure \ref{fig:543}. If the Young's moduli of the two portions are $E_1$ and $E_2$,  find how the applied force is distributed between the two halves.
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+ \includegraphics[width=.75\textwidth]{FIGURES/uebung4.eps}
+\caption{Uniaxial extension/compression of a composite bar}
+\label{fig:543}
+\end{figure}
+
+\underline{Solution:} \\
+%Edited by C. Grigo on 21/1/16: included reference to Lai problem 5.43. Reproduced Lai solution for problem 5.43. Corrected a sign mistake.
+
+% Suppose the bars are in simple extension with only non-zero stress component $\sigma_{11}$ (see section 5.13 of Lai et al., problem 5.43).
+% Let $\sigma_{11}=\sigma^{(1)}$ in bar 1 and $\sigma_{11}=\sigma^{(2)}$ in bar two.
+% At the interface where the two bars meet the following must hold (from equilibrium along $x_1$ axis).
+% \be
+% -A \sigma^{(1)}+A\sigma^{(2)}+P=0
+% \label{eq:1}
+% \ee
+% where $A$ is the common cross-sectional area.
+% 
+% The strain in $\epsilon_{11}^{(1)}$ in bar $1$ is:
+% \be
+% \epsilon_{11}^{(1)}=\frac{\sigma_{11}}{E}=\frac{\sigma^{(1)}}{E}
+% \ee
+% Furthermore, the axial displacement $u_1^{(1)}(x_1,x_2,x_3)$ is:
+% \be
+% \epsilon_{11}^{(1)}=u_{1,1}^{(1)}=\frac{\sigma^{(1)}}{E} \to u_1^{(1)}=\frac{\sigma_{1}}{E} x_1+f^{(1)}(x_2,x_3)
+% \ee
+% Since on the left end at $x_1=0$, $u_1^{(1)}=0$, $\forall x_2,x_3$ we can establish that:
+% \be
+% u_1^{(1)}=\frac{ \sigma^{(1)} }{ E_1 } x_1, \quad x_1 \in [0,l]
+% \ee
+% From the anti-symmetry of the problem, we deduce that the axial displacement $u_1^{(2)}$ along bar 2 is also a linear function of $x_1$ given by:
+% \be
+% u_1^{(2)}=-\frac{ \sigma^{(2)} }{E_2} (2l-x_1), \quad x_1 \in [l,2l]
+% \ee
+% At the interface where the two bars meet, $x_1=l$,  the axial displacements  should be compatible i.e.:
+% \be
+% u_1^{(1)}(l)=u_1^{(2)}(l) \to \frac{\sigma^{(1)}}{E_1} l=-\frac{\sigma^{(2)}}{E_2} l
+% \label{eq:2}
+% \ee
+% From Equations (\ref{eq:1}) and (\ref{eq:2}) we obtain:
+% \be
+% \sigma^{(1)}=\frac{E_1}{E_1+E_2} \frac{P}{A}, \quad \sigma^{(2)}=-\frac{E_2}{E_1+E_2} \frac{P}{A}
+% \ee
+
+The \textbf{right} bar is called bar 1, the \textbf{left} one bar 2. It is a 1D problem, so we only have to consider components in $x_1$-direction. From the
+lecture we know that for uniaxial extension, the strain in bar $i$ is given by
+\be
+\epsilon_{11}^{(i)} = u^{(i)}_{1,1} = \frac{\sigma^{(i)}}{E_i},
+\ee
+where $u_1^{(i)}$ is the displacement field in $x_1$-direction and $\sigma^{(i)}$ and $E_i$ the stress and Young modulus in bar $i$, respectively.
+
+We can integrate to get the displacement field
+\be
+u_1^{(1)} = \frac{\sigma^{(1)}}{E_1}x_1 + c_1, \qquad u_1^{(2)} = \frac{\sigma^{(2)}}{E_2}x_1 + c_2,
+\ee
+with $c_1, c_2$ some integration constants. From the boundary conditions $u_1^{(1)}(2l) = 0$, $u_1^{(2)}(0) = 0$, we get
+\be
+c_1 = -2l \frac{\sigma^{(1)}}{E_1}, \qquad c_2 = 0.
+\ee
+Hence
+\be
+u_1^{(1)}(x_1) = \frac{\sigma^{(1)}}{E_1}(x_1 - 2l), \qquad u_1^{(2)}(x_1) = \frac{\sigma^{(2)}}{E_2}x_1.
+\ee
+Furthermore, the displacements of bar 1 and bar 2 have to be identical on the weld joint, $u_1^{(1)}(l) = u_1^{(2)}(l)$. From that we obtain
+\be
+-\frac{\sigma^{(1)}}{E_1}l = \frac{\sigma^{(2)}}{E_2}l.
+\ee
+Together with the balance of forces
+\be
+-\sigma^{(1)}A + \sigma^{(2)}A + P = 0
+\ee
+with $A$ the cross section area, we have a linear equation system of 2 equations and 2 variables $\sigma^{(1)}, \sigma^{(2)}$. We solve that to get
+\be
+\sigma^{(1)}=\frac{E_1}{E_1+E_2} \frac{P}{A}, \quad \sigma^{(2)}=-\frac{E_2}{E_1+E_2} \frac{P}{A}.
+\ee
+
+
+
+\item Consider the case of pure bending discussed in class (Figure \ref{fig:pb}) with moment couple $\bs{M}_R=-\bs{M}_L=M\hat{\bs{e}}_2$. The  $x_1$ axis is passing
+through the centroids of all the cross-sections  and the  $x_2$ and $x_3$ axes are the principal axes. The beam is subjected to the following constraints: 
+\bi
+\item  The origin $(0,0,0)$ is fixed, 
+\item $\frac{\pa u_3}{\pa x_2}=0$ at the origin
+\item  the centroid at the right end section can only move horizontally in the $x_1$ direction. \ei
+\bi
+\item Obtain the displacement field and show that every plane cross-section remains a plane after bending and 
+\item Obtain the deformed shape of the centroidal line of the beam, regarded as the deflection of the beam.
+\ei
+\begin{figure}[!h]
+\centering
+\psfrag{x1}{$x_1$}
+\psfrag{x2}{$x_2$}
+\psfrag{x3}{$x_3$}
+\psfrag{ML}{$M_L$}
+\psfrag{MR}{$M_R$}
+\psfrag{l}{$l$}
+ \includegraphics[width=.75\textwidth]{FIGURES/bending.eps}
+\caption{Pure bending of a prismatic bar}
+\label{fig:pb}
+\end{figure}
+
+\underline{Solution:} \\
+This is the solved example 5.19.1 in Lai et al.
+
+%C. Grigo, 21/01/16:
+\textit{Question: Given the strain components}
+\be
+\epsilon_{11} = \frac{M}{I_{22}E}x_3, \quad \epsilon_{22} = \epsilon_{33} = -\frac{\nu M}{I_{22}E}x_3, \quad \epsilon_{12} = \epsilon_{13} = \epsilon_{23} = 0,
+\ee
+\textit{how can we integrate them to get the displacement field?}
+
+\underline{Solution:}
+
+We begin with the diagonal elements of the strain tensor:
+\begin{align}
+\epsilon_{11} &= u_{1,1} \quad &\rightarrow \quad u_1 &= \frac{M}{I_{22}E}x_1x_3 + f_1(x_2,x_3), \label{u1} \\
+\epsilon_{22} &= u_{2,2} \quad &\rightarrow \quad u_2 &= -\frac{\nu M}{I_{22}E}x_2x_3 + f_2(x_1,x_3),\label{u2} \\
+\epsilon_{33} &= u_{3,3} \quad &\rightarrow \quad u_3 &= -\frac{1}{2}\frac{\nu M}{I_{22}E}x_3^2 + f_3(x_1,x_2). \label{u3}
+\end{align}
+Furthermore, we have
+\begin{align}
+2\epsilon_{12} &= u_{1,2} + u_{2,1} = f_{1,2}(x_2,x_3) + f_{2,1}(x_1,x_3) &= 0, \label{str1} \\
+2\epsilon_{13} &= u_{1,3} + u_{3,1} = \frac{M}{I_{22}E}x_1 + f_{1,3}(x_2,x_3) + f_{3,1}(x_1,x_2)&= 0, \label{str2} \\
+2\epsilon_{23} &= u_{2,3} + u_{3,2} = -\frac{\nu M}{I_{22} E}x_2 + f_{2,3}(x_1,x_3) + f_{3,2}(x_1,x_2) &= 0. \label{str3}
+\end{align}
+
+To go on, we first have a look at the mixed second order derivatives of the functions $f_i$. To that end, we derive equation \eqref{str1} by $x_3$, equation
+\eqref{str2} by $x_2$ and equation \eqref{str3} by $x_1$ to get:
+
+\begin{align}
+f_{1,23} + f_{2,13} &= 0, \\
+f_{1,23} + f_{3,21} &= 0, \\
+f_{2,13} + f_{3,12} &= 0,
+\end{align}
+from which it follows that $f_{1,23} = f_{2,13} = f_{3,12}$ and hence $f_{1,23} = f_{2,13} = f_{3,12} = 0$. Thus, the functions $f_1, f_2, f_3$ cannot have
+mixed terms $\propto x_ix_j, i\neq j$.
+
+Next, we derive equation \eqref{str1} by $x_2$ and equation \eqref{str2} by $x_3$ to get
+\begin{align}
+f_{1,22} + f_{2,21} = f_{1,22} &= 0, \\
+f_{1,33} + f_{3,31} = f_{1,33} &= 0,
+\end{align}
+which shows that $f_1(x_2, x_3)$ can be at most linear in $x_2$ and $x_3$. We can thus write
+\be
+f_1(x_2,x_3) = \beta_1 x_2 + \beta_2 x_3 + \beta_3.
+\label{f_1}
+\ee
+
+Next, we derive equation \eqref{str1} by $x_1$ and equation \eqref{str3} by $x_3$ to get
+\begin{align}
+f_{1,12} + f_{2,11} &= f_{2,11} = 0,\\
+f_{2,33} + f_{3,23} &= f_{2,33} = 0,
+\end{align}
+so $f_2$ is at most linear in $x_1$ and $x_3$. Taking into account that $f_{1,2} = -f_{2,1}$, we can write
+\be
+f_2(x_1,x_3) = -\beta_1 x_1 + \beta_4 x_3 + \beta_5.
+\label{f_2}
+\ee
+
+Plugging \eqref{f_1} into equation \eqref{str2} and \eqref{f_2} into equation \eqref{str3} and solving for $f_{3,1}, f_{3,2}$, respectively, we get
+
+\begin{align}
+f_{3,1}(x_1,x_2) &= -\frac{M}{I_{22}E}x_1 - \beta_2, \label{f31} \\
+f_{3,2}(x_1,x_2) &= \frac{\nu M}{I_{22}E}x_2 - \beta_4. \label{f32}
+\end{align}
+
+We integrate equation \eqref{f31} to get
+\be
+f_3(x_1,x_2) = -\frac{M}{2I_{22}E}x_1^2 - \beta_2 x_1 + g(x_2), \label{f3}
+\ee
+with some unknown function $g(x_2)$. Deriving equation \eqref{f3} by $x_2$, we should get back equation \eqref{f32} again:
+\be
+f_{3,2}(x_1,x_2) = g_{,2}(x_2) = \frac{\nu M}{I_{22}E}x_2 - \beta_4.
+\ee
+Thus
+\be
+g(x_2) = \frac{1}{2} \frac{\nu M}{I_{22}E} x_2^2 - \beta_4 x_2 + \beta_6,
+\ee
+with a further integration constant $\beta_6$. We then get
+\be
+f_3(x_1,x_2) = -\frac{1}{2} \frac{M}{I_{22}E}(x_1^2 - \nu x_2^2) - \beta_2 x_1 - \beta_4 x_2 + \beta_6.
+\label{f_3}
+\ee
+
+Plugging \eqref{f_1}, \eqref{f_2} and \eqref{f_3} into equations \eqref{u1} - \eqref{u3}, we finally get
+\begin{align}
+u_1 &= \frac{M}{I_{22}E}x_1x_3 + \beta_1 x_2 + \beta_2 x_3 + \beta_3, \\
+u_2 &= -\frac{\nu M}{I_{22}E}x_2x_3 -\beta_1 x_1 + \beta_4 x_3 + \beta_5, \\
+u_3 &= -\frac{1}{2} \frac{M}{I_{22}E}\left(x_1^2 - \nu(x_2^2 - x_3^2)\right) - \beta_2 x_1 - \beta_4 x_2 + \beta_6.
+\end{align}
+
+Renaming
+\be
+\beta_1 = -\alpha_3, \quad \beta_2 = \alpha_2, \quad \beta_3 = \alpha_4, \quad \beta_4 = -\alpha_1, \quad \beta_5 = \alpha_5, \beta_6 = \alpha_6,
+\ee
+this is identical to Lai (5.19.12).
+\end{enumerate}
+
+
+
+\end{document}
