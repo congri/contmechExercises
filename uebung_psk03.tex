@@ -774,109 +774,99 @@ Let $d\bs{X}^{(1)} = \frac{dS_1}{\sqrt{2}}(\bs{\hat{e}}_1+\bs{\hat{e}}_2)$ and $
 \frac{dS_2}{\sqrt{2}}(-\bs{\hat{e}}_1 + \bs{\hat{e}}_2)$ be differential material elements in the undeformed
 configuration.
 \bi
-\item Find the deformed elements $d\bs{x}^{(1)}$ and $d\bs{x}^{(2)}$ with lengths $ds_1$ and $ds_2$ respectively.
+\item[a)] Find the deformed elements $d\bs{x}^{(1)}$ and $d\bs{x}^{(2)}$ with lengths $ds_1$ and $ds_2$ respectively.
 
 \ifsolution
 \underline{Solution:}
 
 The deformation gradient for the motion above is given by:
 \be
-[\bs{F}] = \bmat 1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \emat
+\bs{F} = \bmat 1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \emat
 \ee
 
 As discussed in the previous problem as well:
-\be
-d\bs{x}^{(1)}=\bs{F}d\bs{X}^{(1)} \to [d\bs{x}^{(1)}] = \left[\begin{array}{lll}  1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
-               \end{array}
-\right] \frac{dS_1}{\sqrt{2}} \left[\begin{array}{l} 1 \\1 \\0 \end{array} \right] =\frac{dS_1}{\sqrt{2}} 
-\left[\begin{array}{l} 1+k \\1 \\0 \end{array} \right]
-\ee
+\begin{align}
+d\bs{x}^{(1)} &= \bs{F}d\bs{X}^{(1)} \\ \nonumber
+&= \bmat 1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \emat \frac{dS_1}{\sqrt{2}} \bmat 1 \\1 \\0 \emat =\frac{dS_1}{\sqrt{2}}
+\bmat 1+k \\1 \\0 \emat
+\end{align}
 and:
 \be
-ds_1=|d\bs{x}^{(1)}|=\frac{dS_1}{\sqrt{2}} \sqrt{(1+k)^2+1}
+ds_1 = \left|d\bs{x}^{(1)}\right| = \frac{dS_1}{\sqrt{2}} \sqrt{(1+k)^2+1}
 \ee
 
 Similarly:
-\be
-d\bs{x}^{(2)}=\bs{F}d\bs{X}^{(2)} \to [d\bs{x}^{(2)}] = \left[\begin{array}{lll}  1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
-               \end{array}
-\right] \frac{dS_1}{\sqrt{2}} \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right] =\frac{dS_1}{\sqrt{2}} 
-\left[\begin{array}{l} -(1+k) \\1 \\0 \end{array} \right]
-\ee
+\begin{align}
+d\bs{x}^{(2)} &= \bs{F}d\bs{X}^{(2)} \\ \nonumber
+&= \bmat  1+k & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\emat \frac{dS_1}{\sqrt{2}} \bmat -1 \\1 \\0 \emat =
+\frac{dS_1}{\sqrt{2}} \bmat -(1+k) \\1 \\0 \emat
+\end{align}
 and:
 \be
-ds_2=|d\bs{x}^{(2)}|=\frac{dS_2}{\sqrt{2}} \sqrt{(1+k)^2+1}
+ds_2 = \left|d\bs{x}^{(2)}\right| = \frac{dS_2}{\sqrt{2}} \sqrt{(1+k)^2+1}
 \ee
 \fi
-\item  Evaluate the stretches of these elements $ds_1/dS_1$ and $ds_2/dS_2$ and the change in the angle between them.
+\item[b)] Evaluate the stretches of these elements $ds_1/dS_1$ and $ds_2/dS_2$ and the change in the angle between them.
 
 \ifsolution
 \underline{Solution:}
 
 From the discussion in the previous problem we have:
+\begin{align}
+\left|\frac{ds_1}{dS_1}\right| &= \sqrt{\frac{(1+k)^2+1}{2}}, \\
+\left|\frac{ds_2}{dS_2}\right| &= \sqrt{\frac{(1+k)^2+1}{2}}.
+\end{align}
+Furthermore the right Cauchy-Green tensor $\bs{C}$ is
 \be
-|\frac{ds_1}{dS_1}|=\sqrt{\frac{(1+k)^2+1}{2}}
-\ee
-\be
-|\frac{ds_2}{dS_2}|=\sqrt{\frac{(1+k)^2+1}{2}}
-\ee
-Furthermore the right Cauchy-Green tensor $\bs{C}$ is:
-\be
-[\bs{C}]=\left[\begin{array}{lll}  (1+k)^2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1                
-               \end{array}
-\right]
+\bs{C} = \bmat (1+k)^2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\emat
 \ee
 and:
-\be
-\begin{array}{ll}
-ds_1ds_2\cos \theta & =d\bs{X}^{(1)}\cdot \bs{C}d\bs{X}^{(2)} \\
-& =\frac{dS_1}{\sqrt{2}}  \left[\begin{array}{lll} 1 &1 &0 \end{array} \right]  \left[\begin{array}{lll} (1+k)^2 & 0 &
-0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
-               \end{array}
-\right] \frac{dS_2}{\sqrt{2}}  \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right]\\
-&=\frac{dS_1dS_2}{2}(-(1+k)^2+1)
-\end{array}
-\ee
+\begin{align}
+ds_1 ds_2 \cos \theta &= d\bs{X}^{(1)}\cdot \bs{C}d\bs{X}^{(2)} \\ \nonumber
+&= \frac{dS_1}{\sqrt{2}} \bmat 1 &1 &0 \emat  \bmat (1+k)^2 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\emat \frac{dS_2}{\sqrt{2}}
+\bmat -1 \\1 \\0 \emat \\ \nonumber 
+&= \frac{dS_1dS_2}{2}\left(-(1 + k)^2 + 1\right).
+\end{align}
 \fi
-\item Evaluate part (b) for $k = 1$ and $k = 0.01$.
+\item[c)] Evaluate part (b) for $k = 1$ and $k = 0.01$.
 
 \ifsolution
 \underline{Solution:}
 
 For $k = 1$:
-\be
-|\frac{ds_1}{dS_1}|=\sqrt{\frac{(1+k)^2+1}{2}}=\sqrt{\frac{5}{2}}=1.581
-\ee
-\be
-|\frac{ds_2}{dS_2}|=\sqrt{\frac{(1+k)^2+1}{2}}=\sqrt{\frac{5}{2}}=1.581
-\ee
+\begin{align}
+\left|\frac{ds_1}{dS_1}\right| &= \sqrt{\frac{(1+k)^2+1}{2}} = \sqrt{\frac{5}{2}} = 1.581, \\
+\left|\frac{ds_2}{dS_2}\right| &= \sqrt{\frac{(1+k)^2+1}{2}} = \sqrt{\frac{5}{2}} = 1.581,
+\end{align}
 and:
-\be
-ds_1ds_2\cos \theta=\frac{dS_1dS_2}{2}(-(1+k)^2+1)=-\frac{3 dS_1dS_2}{2} \to cos\theta =-0.6
-\ee
-For $k=0.01$:
-\be
-|\frac{ds_1}{dS_1}|=\sqrt{\frac{(1+k)^2+1}{2}}=1.005
-\ee
-\be
-|\frac{ds_2}{dS_2}|=\sqrt{\frac{(1+k)^2+1}{2}}=1.005
-\ee
+\begin{align}
+ds_1ds_2\cos \theta &= \frac{dS_1dS_2}{2}(-(1+k)^2+1) = -\frac{3 dS_1dS_2}{2}, \\
+\cos\theta &= -0.6.
+\end{align}
+For $k = 0.01$:
+\begin{align}
+\left|\frac{ds_1}{dS_1}\right| &= \sqrt{\frac{(1+k)^2+1}{2}} = 1.005, \\
+\left|\frac{ds_2}{dS_2}\right| &= \sqrt{\frac{(1+k)^2+1}{2}} = 1.005.
+\end{align}
 and:
-\be
-ds_1ds_2\cos \theta=\frac{dS_1dS_2}{2}(-(1+k)^2+1) = -\frac{3 dS_1dS_2}{2} \to cos\theta =-0.00995
-\ee
+\begin{align}
+ds_1 ds_2 \cos \theta &= \frac{dS_1dS_2}{2}(-(1+k)^2+1) = -\frac{3 dS_1dS_2}{2} \\
+\cos\theta &= -0.00995
+\end{align}
 \fi
-\item Compare the results of the previous part to that predicted by the infinitesimal  strain tensor $\bs{\epsilon}$.
+\item[d)] Compare the results of the previous part to that predicted by the infinitesimal  strain tensor
+$\bs{\epsilon}$.
 
 \ifsolution
 \underline{Solution:}
+
 The Lagrangean strain tensor $\bs{E}$ relates to  the right Cauchy-Green tensor $\bs{C}$ as:
-\be
-\bs{E}=\frac{1}{2}(\bs{C}-\bs{I}) \leftrightarrow \bs{C}=2\bs{E}+\bs{I}
-\ee
-We can therefore use $[\bs{E}]=\left[\begin{array}{lll}  \frac{(1+k)^2-1}{2} & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0                
-               \end{array}
-\right]$ to derive the results above, e.g.:
+\begin{align}
+\bs{E} &= \frac{1}{2}(\bs{C} - \bs{I}) \\
+\bs{C} & =2\bs{E} + \bs{I}
+\end{align}
+We can therefore use $\bs{E} = \bsmat \frac{(1+k)^2-1}{2} & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0\esmat$ to
+derive the results above, e.g.:
 \be
 (ds_1)^2=d\bs{X}^{(1)}\cdot (2\bs{E}+\bs{I}) d\bs{X}^{(1)}, \textrm{ or } (ds_1)^2=d\bs{X}^{(2)}\cdot (2\bs{E}+\bs{I})
 d\bs{X}^{(2)}
@@ -885,67 +875,53 @@ and:
 \be
 ds_1ds_2\cos \theta=d\bs{X}^{(1)}\cdot (2\bs{E}+\bs{I}) d\bs{X}^{(2)}
 \ee
-If in the equations above we use instead of $\bs{E}$, the infinitesimal strain tensor $\bs{\epsilon}$ given by:
-\be
-\bs{\epsilon}=\frac{1}{2}(\bs{F}+\bs{F}^T)-\bs{I} \to [\bs{\epsilon}]=\left[\begin{array}{lll}  k & 0 & 0 \\ 0 & 0 & 0
-\\ 0 & 0 & 0
-               \end{array}
-\right]
-\ee
-then we obtain:
-\be
-\begin{array}{ll}
-(ds_1)^2& =d\bs{X}^{(1)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(1)} \\
-&= \frac{dS_1}{\sqrt{2}} \left[\begin{array}{lll} 1  & 1 & 0 \end{array} \right] \left[\begin{array}{lll}  2k+1 & 0 & 0
-\\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array} \right] \frac{dS_1}{\sqrt{2}} \left[\begin{array}{l} 1 \\1 \\0 \end{array}
-\right] \\
-& =dS_1^2 (k+1)
-\end{array} 
-\ee
-and:
-\be
-\begin{array}{ll}
-(ds_2)^2& =d\bs{X}^{(2)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(2)} \\
-&= \frac{dS_2}{\sqrt{2}} \left[\begin{array}{lll} -1  & 1 & 0 \end{array} \right] \left[\begin{array}{lll}  2k+1 & 0 &
-0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
-               \end{array}
-\right] \frac{dS_2}{\sqrt{2}} \left[\begin{array}{l} -1 \\1 \\0 \end{array} \right] \\
+If in the equations above we use instead of $\bs{E}$ the infinitesimal strain tensor $\bs{\epsilon}$ given by
+\begin{align}
+\bs{\epsilon} &= \frac{1}{2}(\bs{F}+\bs{F}^T)-\bs{I}\\
+&= \bmat k & 0 & 0 \\ 0 & 0 &
+0 \\ 0 & 0 & 0\emat
+\end{align}
+then we obtain
+\begin{align}
+(ds_1)^2 &= d\bs{X}^{(1)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(1)} \\ \nonumber
+&= \frac{dS_1}{\sqrt{2}} \bmat 1  & 1 & 0 \emat \bmat 2k+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \emat
+\frac{dS_1}{\sqrt{2}} \bmat 1 \\1 \\0 \emat \\ \nonumber
+&= dS_1^2 (k+1)
+\end{align}
+and
+\begin{align}
+(ds_2)^2 &= d\bs{X}^{(2)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(2)} \\ \nonumber
+&= \frac{dS_2}{\sqrt{2}} \bmat -1  & 1 & 0 \emat \bmat 2k+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\emat
+\frac{dS_2}{\sqrt{2}} \bmat -1 \\1 \\0 \emat \\ \nonumber
 &= dS_2^2 (k+1)
-\end{array} 
-\ee
-and:
-\be
-\begin{array}{ll}
-ds_1ds_2\cos \theta& =d\bs{X}^{(1)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(2)} \\
-&= \frac{dS_1}{\sqrt{2}} \left[\begin{array}{lll} 1  & 1 & 0 \end{array} \right] \left[\begin{array}{lll}  2k+1 & 0 & 0
-\\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array} \right] \frac{dS_2}{\sqrt{2}} \left[\begin{array}{l} -1 \\1 \\0 \end{array}
-\right] \\
-& = -k dS_1 dS_2
-\end{array}
-\ee
+\end{align}
+and
+\begin{align}
+ds_1 ds_2 \cos \theta &= d\bs{X}^{(1)}\cdot (2\bs{\epsilon}+\bs{I}) d\bs{X}^{(2)} \\ \nonumber
+&= \frac{dS_1}{\sqrt{2}} \bmat 1  & 1 & 0 \emat \bmat  2k+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \emat
+\frac{dS_2}{\sqrt{2}} \bmat -1 \\1 \\0 \emat \\ \nonumber &= -k dS_1 dS_2
+\end{align}
 
-We observe that for $k=1$:
-\be
-|\frac{ds_1}{dS_1}|=\sqrt{k+1}=\sqrt{2} \ne 1.581
-\ee
-\be
-|\frac{ds_2}{dS_2}|=\sqrt{k+1}=\sqrt{2} \ne 1.581
-\ee
-and:
-\be
-ds_1ds_2\cos \theta=-k dS_1dS_2 \to cos\theta =-\frac{1}{2}\ne -0.6
-\ee
-For $k=0.01$:
-\be
-|\frac{ds_1}{dS_1}|=\sqrt{k+1}=1.00498 \approx 1.005
-\ee
-\be
-|\frac{ds_2}{dS_2}|=\sqrt{k+1}=1.00498 \approx 1.005
-\ee
-and:
-\be
-ds_1ds_2\cos \theta=-k dS_1dS_2 \to cos\theta =-0.0099 \approx -0.00995
-\ee
+We observe that for $k = 1$
+\begin{align}
+\left|\frac{ds_1}{dS_1}\right| &= \sqrt{k + 1} = \sqrt{2} \ne 1.581, \\
+\left|\frac{ds_2}{dS_2}\right| &= \sqrt{k+1}=\sqrt{2} \ne 1.581
+\end{align}
+and
+\begin{align}
+ds_1ds_2\cos \theta &= -k dS_1dS_2,\\
+\cos\theta &= -\frac{1}{2}\ne -0.6.
+\end{align}
+For $k=0.01$
+\begin{align}
+\left|\frac{ds_1}{dS_1}\right| &= \sqrt{k+1} = 1.00498 \approx 1.005, \\
+\left|\frac{ds_2}{dS_2}\right| &= \sqrt{k+1} = 1.00498 \approx 1.005
+\end{align}
+and
+\begin{align}
+ds_1ds_2\cos \theta &= -k dS_1dS_2, \\ 
+\cos\theta &= -0.0099 \approx -0.00995.
+\end{align}
 
 We observe that for small $k$ the infinitesimal strain tensor provides a good approximation. This is because the
 magnitude of the displacement gradients $\nabla \bs{U}$ are proportional to $k$ and therefore when $k$ is small, we
@@ -967,7 +943,7 @@ from the expressions with the Lagrangean strain tensor.
 \item A motion is said to be irrotational if the spin tensor vanishes. Show that the following velocity field is
 irrotational:
 \be
-\bs{v}=\frac{-x_2 \bs{\hat{e}}_1+x_1\bs{\hat{e}}_2 }{r^2}, \quad \tm{where} \quad r^2 = x_1^2+x_2^2.
+\bs{v} = \frac{-x_2 \bs{\hat{e}}_1+x_1\bs{\hat{e}}_2 }{r^2}, \quad \tm{where} \quad r^2 = x_1^2+x_2^2.
 \ee
 
 \ifsolution
@@ -975,23 +951,21 @@ irrotational:
 
 The spin tensor $\bs{W}$ is defined as:
 \be
-\bs{W}=\frac{1}{2}( \nabla \bs{v}-(\nabla \bs{v})^T)
+\bs{W} = \frac{1}{2}\left(\nabla \bs{v} - (\nabla \bs{v})^T\right)
 \ee
 where $\nabla \bs{v}$ is the velocity gradient (spatial description).
 From the velocity field above we have that:
 \be
-[\bs{v}]=\frac{1}{r^4}\left[\begin{array}{lll}   2x_1x_2 & x_2^2-x_1^2 & 0 \\
-                             x_2^2-x_1^2 &-2x_1x_2 & 0 \\ 0 & 0 & 0
-                            \end{array}\right]
+\bs{v} = \frac{1}{r^4}\bmat 2x_1x_2 & x_2^2-x_1^2 & 0 \\x_2^2-x_1^2 &-2x_1x_2 & 0\\ 0 & 0 & 0 \emat
 \ee
 from which one can easily verify that:
 \be
-\bs{W}=\bs{0}.
+\bs{W} = \bs{0}.
 \ee
 \fi
 
 \newpage
-\item (\textbf{Exam 2014})  Figure \ref{fig:glacier} depicts the undeformed and deformed state of the same material
+\item (\textbf{Exam 2014}) Figure \ref{fig:glacier} depicts the undeformed and deformed state of the same material
 body. In order to track the deformation a triangle ABC was drawn on the material. In the undeformed state, the length
 of all the sides was equal to $a_0=100~mm$. In the deformed state, the triangle has deformed and the length of its
 sides are $a_1=80~mm$ (side AB), $a_2=110~mm$ (side BC), $a_3=120~mm$ (side CA).
@@ -1028,19 +1002,19 @@ components of $\bs{E}$ in order to get full credit.
 \underline{Solution:}
 
 \begin{align}
-d\bs X^{(1)} &= 
+\bs L^{(1)} &= 
 \begin{pmatrix}
 -\frac{1}{2} a_0\\
 -\frac{\sqrt{3}}{2} a_0
 \end{pmatrix}
 &&\textit{Side $AB$}, \\
-d\bs X^{(2)} &= 
+\bs L^{(2)} &= 
 \begin{pmatrix}
  a_0\\
 0
 \end{pmatrix}
 &&\textit{Side $BC$}, \\
-d\bs X^{(3)} &= 
+\bs L^{(3)} &= 
 \begin{pmatrix}
 -\frac{1}{2} a_0\\
 \frac{\sqrt{3}}{2} a_0
@@ -1049,10 +1023,12 @@ d\bs X^{(3)} &=
 \end{align}
 
 \begin{align}
-a_i^2 &= d\bs X^{(i)T} \bs F^T \bs F d \bs X^{(i)} = d\bs X^{(i)T} \bs C d \bs X^{(i)} && \textit{$i$ not summed,} \\
-a_1^2 &= dX_i^{(1)} C_{ij}dX_j^{(1)} = \frac{a_0^2}{4} C_{11} + \frac{\sqrt{3}}{2} a_0^2 C_{12} + \frac{3}{4} a_0^2 C_{22}, && \\
-a_2^2 &= dX_i^{(2)} C_{ij} dX_j^{(2)} = a_0^2 C_{11}, && \\
-a_3^2 &=dX_i^{(3)} C_{ij} dX_j^{(3)} = \frac{a_0^2}{4}C_{11} - \frac{\sqrt{3}}{2}a_0^2 C_{12} + \frac{3}{4}a_0^2 C_{22}.
+a_i^2 &= \bs L^{(i)T} \bs F^T \bs F \bs L^{(i)} = \bs L^{(i)T} \bs C  \bs L^{(i)} && \textit{$i$ not summed,} \\
+a_1^2 &= L_i^{(1)} C_{ij}L_j^{(1)} = \frac{a_0^2}{4} C_{11} + \frac{\sqrt{3}}{2} a_0^2 C_{12} + \frac{3}{4} a_0^2
+C_{22}, && \\
+a_2^2 &= L_i^{(2)} C_{ij} L_j^{(2)} = a_0^2 C_{11}, && \\
+a_3^2 &= L_i^{(3)} C_{ij} L_j^{(3)} = \frac{a_0^2}{4}C_{11} - \frac{\sqrt{3}}{2}a_0^2 C_{12} + \frac{3}{4}a_0^2
+C_{22}.
 \end{align}
 
 We thus have 3 linear independent equations with 3 unknowns $C_{11},C_{12}, C_{22}$. Solving for $\bs C$, we can compute $\bs E$ by

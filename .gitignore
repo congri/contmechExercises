@@ -28,4 +28,7 @@ data/
 *.jpg
 *.fig
 *.eps
+
+# Temporary files
+*.tmp
 /tmp/
