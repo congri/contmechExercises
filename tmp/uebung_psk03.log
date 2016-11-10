@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.7.25)  10 NOV 2016 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.7.25)  10 NOV 2016 14:04
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -338,7 +338,7 @@ File: FIGURES/strecch_square.eps Graphic file (type eps)
 <FIGURES/strecch_square.eps> [11]
 File: FIGURES/cylinder2.eps Graphic file (type eps)
  <FIGURES/cylinder2.eps> [12]
-Overfull \hbox (14.63063pt too wide) detected at line 806
+Overfull \hbox (14.63063pt too wide) detected at line 805
 []\OML/cmm/m/it/10 d[][] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 d[][] \OMS/cmsy/m
 /n/10 ! \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d[][]\OT1/cmr/m/n/10 ] = [] [] [] = [
 ] []
@@ -350,17 +350,17 @@ File: FIGURES/glacier.eps Graphic file (type eps)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1114.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1113.
 
 [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1114.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1113.
  (./uebung_psk03.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1114.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1113.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1113.
 
 Package rerunfilecheck Info: File `uebung_psk03.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1114.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1113.
  ) 
 Here is how much of TeX's memory you used:
  5899 strings out of 494902
